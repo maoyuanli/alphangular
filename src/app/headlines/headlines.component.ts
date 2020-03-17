@@ -15,7 +15,7 @@ export class HeadlinesComponent implements OnInit {
 
   ngOnInit(): void {
     this.onFetchHeadlines();
-    // console.log(this.fetchedArticles);
+
   }
 
   onFetchHeadlines() {
@@ -24,12 +24,24 @@ export class HeadlinesComponent implements OnInit {
 
   private fetchHeadlines() {
     this.http.get('https://alphasmartback.herokuapp.com/api/homepage/')
+      .pipe(map(res => {
+        const articlesArray = [];
+        for (const key in res) {
+          if (res.hasOwnProperty(key)) {
+            articlesArray.push({...res[key], id: key});
+          }
+        }
+        // console.log(articlesArray);
+        return articlesArray;
+      }))
       .subscribe(articles => {
-          console.log(articles);
-          console.log(typeof articles);
+          this.fetchedArticles = articles;
+          console.log(this.fetchedArticles);
+          console.log(typeof this.fetchedArticles);
         }
       )
     ;
+    // console.log(this.fetchedArticles);
   }
 
 }
