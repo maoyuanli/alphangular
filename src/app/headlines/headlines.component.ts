@@ -28,7 +28,7 @@ export class HeadlinesComponent implements OnInit {
         const articlesArray = [];
         for (const key in res) {
           if (res.hasOwnProperty(key)) {
-            articlesArray.push({...res[key], id: key});
+            articlesArray.push({...res[key]});
           }
         }
         // console.log(articlesArray);
