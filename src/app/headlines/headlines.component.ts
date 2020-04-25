@@ -31,17 +31,15 @@ export class HeadlinesComponent implements OnInit {
             articlesArray.push({...res[key]});
           }
         }
-        // console.log(articlesArray);
         return articlesArray;
       }))
       .subscribe(articles => {
-          this.fetchedArticles = articles;
+          this.fetchedArticles = Object.values(articles[0]);
           console.log(this.fetchedArticles);
           console.log(typeof this.fetchedArticles);
         }
       )
     ;
-    // console.log(this.fetchedArticles);
   }
 
 }

@@ -1,32 +1,19 @@
 <div>
-  <h5 align="center" className="senti_score_prefix">Overall Sentiment Score is <span
-    id="avg_senti_score"></span>
-
-  </h5>
-  <div>
-    <form id="filterDiv" className="form-inline md-form mr-auto mb-4">
-      <input className="form-control mr-sm-2" type="search" name="filterTitle" id="filterField"
-             placeholder="Type Here to Filter News Title"
-      />
-    </form>
-  </div>
-
 
   <table className="table table-hover table-dark">
     <thead>
     <tr>
       <th>Title</th>
       <th>Sentiment</th>
-      <th>Source</th>
-      <th>Publish Date</th>
     </tr>
     </thead>
 
     <tbody>
-    <tr ng-repeat="article in articles">
-
+    <tr *ngFor="let article of fetchedArticles">
+      <td>{{article.title}}</td>
+      <td>{{article.sentiment}}</td>
     </tr>
-
     </tbody>
   </table>
+
 </div>
