@@ -1,0 +1,34 @@
+<h1>Password Generator</h1>
+
+<div>
+  <label>Enter Length</label>
+</div>
+
+<div>
+  <label>Use Letters</label>
+  <input type="checkbox"/>
+</div>
+
+<div>
+  <label>Use Numbers</label>
+  <input type="checkbox"/>
+</div>
+
+<div>
+  <label>Use Symbos</label>
+  <input type="checkbox"/>
+</div>
+
+<div>
+  <button (click)="onButtonClick()">Generate</button>
+  <button (click)="onClearClick()">clear</button>
+</div>
+
+<div>
+  <label>Your Password</label>
+  <input [value]="getPassword()"/>
+</div>
+
+<div>
+  <p>{{getPassword()}}</p>
+</div>
