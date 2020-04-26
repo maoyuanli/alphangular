@@ -1,0 +1,54 @@
+<div class="container mx-auto">
+  <hr/>
+  <h3 class="display-5">Place Order</h3>
+  <hr/>
+  <form>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label class="input-group-text" htmlFor="inputGroupSelect01">Stock Name</label>
+        <select class="custom-select" id="inputGroupSelect01" (change)="onChangeTicker($event.target.value)">
+          <option value="">Choose...</option>
+          <option value="ABN AMRO BANK N.V. (ABN)">ABN AMRO BANK N.V. (ABN)</option>
+          <option value="ADYEN (ADYEN)">ADYEN (ADYEN)</option>
+          <option value="ING GROEP N.V. (INGA)">ING GROEP N.V. (INGA)</option>
+          <option value="KPN KON (KPN)">KPN KON (KPN)</option>
+          <option value="ROYAL DUTCH SHELLA (RDSA)">ROYAL DUTCH SHELLA (RDSA)</option>
+          <option value="BNP PARIBAS ACT.A (BNP)">BNP PARIBAS ACT.A (BNP)</option>
+        </select>
+
+      </div>
+      <div class="form-group col-md-6">
+        <label class="input-group-text" htmlFor="inputGroupSelect01">Order Type</label>
+        <label for="inputGroupSelect02"></label>
+        <select class="custom-select" id="inputGroupSelect02" (change)="onChangeType($event.target.value)">
+          <option value="">Choose...</option>
+          <option value="Limited Buy">Limited Buy</option>
+          <option value="Limited Sell">Limited Sell</option>
+          <option value="Market Buy">Market Buy</option>
+          <option value="Market Sell">Market Sell</option>
+        </select>
+
+      </div>
+      <div class="form-group col-md-6">
+        <label class="input-group-text" htmlFor="inputGroupSelect03">Order Price</label>
+        <label>
+          <input type="number" class="form-control" name="orderPrice"
+                 (change)="onChangePrice($event.target.value)"
+                 placeholder="Enter "/>
+        </label>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label class="input-group-text" htmlFor="inputGroupSelect04">Order Volumn</label>
+        <label>
+          <input type="number" class="form-control" name="orderVolumn"
+                 (change)="onChangeVolumn($event.target.value)"
+                 placeholder="Enter "/>
+        </label>
+      </div>
+    </div>
+    <button  type="submit" id="subBtn"
+            class="btn btn-success"
+    >Submit Order </button>
+  </form>
+</div>
