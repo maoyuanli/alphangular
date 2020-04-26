@@ -1,0 +1,31 @@
+<div class="container">
+
+  <form>
+    <div class="form-group">
+      <label>Name</label>
+      <input (change)="onChangeName($event.target.value)"
+        type="text" class="form-control" name="name"
+             placeholder="John Snow"/>
+    </div>
+    <div class="form-group">
+      <label htmlFor="exampleFormControlTextarea1">Email</label>
+      <input (change)="onChangeEmail($event.target.value)"
+        type="email" class="form-control" name="email"
+             placeholder="john.snow@winterfall.got"/>
+    </div>
+    <div class="form-group">
+      <label htmlFor="exampleFormControlTextarea1">Phone</label>
+      <input (change)="onChangePhone($event.target.value)"
+        type="text" class="form-control" name="phone"
+             placeholder="123-456-7890"/>
+    </div>
+    <div class="form-group">
+      <label htmlFor="exampleFormControlTextarea1">Comment</label>
+      <textarea (change)="onChangeComment($event.target.value)"
+        rows="3" type="text" class="form-control" name="comment"
+                placeholder="What did Father use to say? Everything before the word ‘but’ is horse-shit."></textarea>
+    </div>
+    <button id="subBtn" className="btn btn-success"
+            (click)="onSubmitHandler($event)">Submit</button>
+  </form>
+</div>
