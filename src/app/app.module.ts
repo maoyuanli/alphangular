@@ -12,6 +12,7 @@ import { SearchnewsComponent } from './searchnews/searchnews.component';
 import { QuotecardComponent } from './quotecard/quotecard.component';
 import { QuotepageComponent } from './quotepage/quotepage.component';
 import { TradeorderComponent } from './tradeorder/tradeorder.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { TradeorderComponent } from './tradeorder/tradeorder.component';
     SearchnewsComponent,
     QuotecardComponent,
     QuotepageComponent,
-    TradeorderComponent
+    TradeorderComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,

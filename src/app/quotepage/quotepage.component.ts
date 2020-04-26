@@ -33,6 +33,5 @@ export class QuotepageComponent implements OnInit {
           this.quotes = Object.values(quotes[0]);
         }
       );
-
   }
 }
