@@ -12,19 +12,19 @@ export class TestCardholderComponent implements OnInit {
 
   posts = [
     {
-      title: 'Bird 1',
+      title: 'EGGIE',
       imageUrl:
         'https://images.unsplash.com/' +
         'photo-1587525483275-1217cef5efeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80 334w',
     },
     {
-      title: 'Bird 2',
+      title: 'Brain Freeze',
       imageUrl:
         'https://images.unsplash.com/' +
         'photo-1551986782-d0169b3f8fa7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80 334w',
     },
     {
-      title: 'Bird 3',
+      title: 'Saber Boss Egg',
       imageUrl:
         'https://images.unsplash.com/' +
         'photo-1570217920622-d0db8f472a07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80 334w',

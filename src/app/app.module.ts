@@ -8,6 +8,8 @@ import { TestComp1Component } from './test-comp1/test-comp1.component';
 import { TestCardsComponent } from './test-cards/test-cards.component';
 import { TestCardholderComponent } from './test-cardholder/test-cardholder.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { SearchnewsComponent } from './searchnews/searchnews.component';
+import { QuotecardComponent } from './quotecard/quotecard.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { HomepageComponent } from './homepage/homepage.component';
     TestComp1Component,
     TestCardsComponent,
     TestCardholderComponent,
-    HomepageComponent
+    HomepageComponent,
+    SearchnewsComponent,
+    QuotecardComponent
   ],
   imports: [
     BrowserModule,
