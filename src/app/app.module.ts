@@ -11,6 +11,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { SearchnewsComponent } from './searchnews/searchnews.component';
 import { QuotecardComponent } from './quotecard/quotecard.component';
 import { QuotepageComponent } from './quotepage/quotepage.component';
+import { TradeorderComponent } from './tradeorder/tradeorder.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { QuotepageComponent } from './quotepage/quotepage.component';
     HomepageComponent,
     SearchnewsComponent,
     QuotecardComponent,
-    QuotepageComponent
+    QuotepageComponent,
+    TradeorderComponent
   ],
   imports: [
     BrowserModule,
