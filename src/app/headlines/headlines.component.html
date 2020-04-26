@@ -1,17 +1,21 @@
 <div>
 
-  <table className="table table-hover table-dark">
+  <table class="table table-hover table-dark">
     <thead>
     <tr>
       <th>Title</th>
       <th>Sentiment</th>
+      <th>Source</th>
+      <th>Publish Date</th>
     </tr>
     </thead>
 
     <tbody>
-    <tr *ngFor="let article of fetchedArticles">
+    <tr *ngFor="let article of articles">
       <td>{{article.title}}</td>
       <td>{{article.sentiment}}</td>
+      <td>{{article.source.name}}</td>
+      <td>{{article.publishedAt}}</td>
     </tr>
     </tbody>
   </table>

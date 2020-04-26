@@ -1,45 +1,21 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {map} from 'rxjs/operators';
+import {Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'app-headlines',
   templateUrl: './headlines.component.html',
   styleUrls: ['./headlines.component.css']
 })
-export class HeadlinesComponent implements OnInit {
-  fetchedArticles = [];
 
-  constructor(private http: HttpClient) {
+export class HeadlinesComponent implements OnInit {
+
+
+  @Input() articles = [];
+
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.onFetchHeadlines();
-
   }
 
-  onFetchHeadlines() {
-    this.fetchHeadlines();
-  }
-
-  private fetchHeadlines() {
-    this.http.get('https://alphasmartback.herokuapp.com/api/homepage/')
-      .pipe(map(res => {
-        const articlesArray = [];
-        for (const key in res) {
-          if (res.hasOwnProperty(key)) {
-            articlesArray.push({...res[key]});
-          }
-        }
-        return articlesArray;
-      }))
-      .subscribe(articles => {
-          this.fetchedArticles = Object.values(articles[0]);
-          console.log(this.fetchedArticles);
-          console.log(typeof this.fetchedArticles);
-        }
-      )
-    ;
-  }
 
 }

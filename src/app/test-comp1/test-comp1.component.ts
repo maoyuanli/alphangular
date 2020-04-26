@@ -11,6 +11,10 @@ export class TestComp1Component implements OnInit {
   }
 
   password = '';
+  useLetters = false;
+  useNumbers = false;
+  useSymbols = false;
+  length = 0;
 
   ngOnInit(): void {
   }
@@ -25,6 +29,25 @@ export class TestComp1Component implements OnInit {
 
   getPassword() {
     return this.password;
+  }
+
+  onChangeUseLetters() {
+    this.useLetters = true;
+  }
+
+  onChangeUseNumbers() {
+    this.useNumbers = true;
+  }
+
+  onChangeUseSymbols() {
+    this.useSymbols = true;
+  }
+
+  onChangeLength(value: string) {
+    const parsedValue: number = parseInt(value, 10);
+    if (!isNaN(parsedValue)) {
+      this.length = parsedValue;
+    }
   }
 
 }

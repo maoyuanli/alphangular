@@ -2,33 +2,31 @@
 
 <div>
   <label>Enter Length</label>
+  <input (input)="onChangeLength($event.target.value)"/>
 </div>
 
 <div>
   <label>Use Letters</label>
-  <input type="checkbox"/>
+  <input (change)="onChangeUseLetters()" type="checkbox"/>
 </div>
 
 <div>
   <label>Use Numbers</label>
-  <input type="checkbox"/>
+  <input (change)="onChangeUseNumbers()" type="checkbox"/>
 </div>
 
 <div>
-  <label>Use Symbos</label>
-  <input type="checkbox"/>
+  <label>Use Symbols</label>
+  <input (change)="onChangeUseSymbols()" type="checkbox"/>
 </div>
 
 <div>
-  <button (click)="onButtonClick()">Generate</button>
-  <button (click)="onClearClick()">clear</button>
+  <button [disabled]="!length" (click)="onButtonClick()">Generate</button>
+  <button [disabled]="!password" (click)="onClearClick()">clear</button>
 </div>
 
-<div>
+<div class="container" *ngIf="password">
   <label>Your Password</label>
   <input [value]="getPassword()"/>
 </div>
 
-<div>
-  <p>{{getPassword()}}</p>
-</div>
