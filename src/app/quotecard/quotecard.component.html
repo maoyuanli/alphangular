@@ -1,1 +1,28 @@
-<p>quotecard works!</p>
+<div id="chart_card" class="card chart-card" key={index}>
+  <div class="card-body pb-0">
+    <h4 class="card-title font-weight-bold">{{name}}</h4>
+    <p class="card-text mb-4">{{newestAvailableDate}}</p>
+    <div class="d-flex justify-content-between">
+      <p class="display-4 align-self-end">{{price}}</p>
+      <p class="align-self-end pb-2"> {{volume}}</p>
+    </div>
+  </div>
+<!--  <Chart-->
+<!--    width={'380px'}-->
+<!--    height={'200px'}-->
+<!--    chartType="LineChart"-->
+<!--    loader={<div>Loading Chart</div>}-->
+<!--data={this.datePricePair(quote.dataset.data)}-->
+<!--options={{-->
+<!--lineWidth: 3,-->
+<!--  hAxis: {-->
+<!--  title: '1 year range',-->
+<!--  textPosition: 'none',-->
+<!--},-->
+<!--  vAxis: {-->
+<!--  title: 'Price',-->
+<!--},-->
+<!--}}-->
+<!--rootProps={{'data-testid': '1'}}-->
+<!--/>-->
+</div>

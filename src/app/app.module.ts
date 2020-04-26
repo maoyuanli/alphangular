@@ -10,6 +10,7 @@ import { TestCardholderComponent } from './test-cardholder/test-cardholder.compo
 import { HomepageComponent } from './homepage/homepage.component';
 import { SearchnewsComponent } from './searchnews/searchnews.component';
 import { QuotecardComponent } from './quotecard/quotecard.component';
+import { QuotepageComponent } from './quotepage/quotepage.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { QuotecardComponent } from './quotecard/quotecard.component';
     TestCardholderComponent,
     HomepageComponent,
     SearchnewsComponent,
-    QuotecardComponent
+    QuotecardComponent,
+    QuotepageComponent
   ],
   imports: [
     BrowserModule,
