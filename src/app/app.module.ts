@@ -13,6 +13,7 @@ import { QuotecardComponent } from './quotecard/quotecard.component';
 import { QuotepageComponent } from './quotepage/quotepage.component';
 import { TradeorderComponent } from './tradeorder/tradeorder.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { StockindexComponent } from './stockindex/stockindex.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
     QuotecardComponent,
     QuotepageComponent,
     TradeorderComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    StockindexComponent
   ],
   imports: [
     BrowserModule,
