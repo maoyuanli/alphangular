@@ -71,7 +71,7 @@
       <td>{{order.ticker}}</td>
       <td>{{order.order_type}}</td>
       <td>{{order.order_price}}</td>
-      <td>{{order.order_volumn}}</td>
+      <td>{{order.order_volumn | number}}</td>
       <td>{{order.created_at | date:"MMM-dd-yyyy HH:MM:ss"}}</td>
     </tr>
     </tbody>

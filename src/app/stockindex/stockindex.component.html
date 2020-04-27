@@ -1,5 +1,6 @@
 <h5>NASDAQ-100 PM Settlement Value (XQC) Movement is
-  <span> {{indexData.change | percent:'1.4'}} </span>
+  <span [ngStyle]="{color: indexData.change >= 0 ? 'limeGreen' : 'tomato'}"
+  > {{indexData.change | percent:'1.4'}} </span>
 </h5>
 
 <table class="table table-hover">
