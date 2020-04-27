@@ -10,6 +10,7 @@ export class HeadlinesComponent implements OnInit {
 
 
   @Input() articles = [];
+  filterWord = '';
 
   constructor() {
   }
@@ -17,7 +18,11 @@ export class HeadlinesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  filterArticles() {
+  onKeyUpHandleFilterWord(value: string) {
+    this.filterWord = value;
+  }
+
+  filterZeroSentimentHandler() {
     const nonZero = this.articles.filter((article) => {
       if (article.sentiment !== 0) {
         return article;
@@ -28,4 +33,12 @@ export class HeadlinesComponent implements OnInit {
     return nonZero;
   }
 
+  filterTitleHandler() {
+    if (this.filterWord === null) {
+      return  this.filterZeroSentimentHandler();
+    } else {
+      return  this.filterZeroSentimentHandler()
+        .filter(article => article.title.toLowerCase().includes(this.filterWord.toLowerCase()));
+    }
+  }
 }

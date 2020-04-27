@@ -1,5 +1,15 @@
 <div>
 
+  <div>
+    <form id="filterDiv" class="form-inline md-form mr-auto mb-4">
+      <input class="form-control mr-sm-2" type="search" name="filterTitle" id="filterField"
+             placeholder="Type Here to Filter News Title"
+             (keyup)="onKeyUpHandleFilterWord($event.target.value)"
+             />
+    </form>
+  </div>
+
+
   <table class="table table-hover table-dark">
     <thead>
     <tr>
@@ -11,11 +21,11 @@
     </thead>
 
     <tbody>
-    <tr *ngFor="let article of filterArticles()" data-toggle="tooltip" title={{article.description}}>
+    <tr *ngFor="let article of filterTitleHandler()" data-toggle="tooltip" title={{article.description}}>
       <td>{{article.title}}</td>
       <td>{{article.sentiment}}</td>
       <td>{{article.source.name}}</td>
-      <td>{{article.publishedAt | date:"MMM-dd-yyyy HH:MM"}}</td>
+      <td>{{article.publishedAt | date:"MMM-dd HH:MM"}}</td>
     </tr>
     </tbody>
   </table>
