@@ -20,6 +20,7 @@ export class TradeorderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.fetchOrders();
   }
 
   onChangeTicker(ticker: string) {
@@ -78,7 +79,11 @@ export class TradeorderComponent implements OnInit {
       return orderArray;
     }))
       .subscribe(orders => {
-          this.existingOrder = Object.values(orders[0]);
+          const rawOrders = Object.values(orders[0]);
+          this.existingOrder = rawOrders.sort((a, b) => {
+            // @ts-ignore
+            return (a.id > b.id) ? -1 : 1;
+          });
         }
       );
   }

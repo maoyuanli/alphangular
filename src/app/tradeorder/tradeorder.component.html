@@ -52,4 +52,28 @@
              (click)="onSubmitHandler($event)"
     >Submit Order </button>
   </form>
+
+  <table class="table table-hover table-dark">
+    <thead>
+    <tr>
+      <th>Order ID</th>
+      <th>Stock Name</th>
+      <th>Order Type</th>
+      <th>Order Price</th>
+      <th>Order Volumn</th>
+      <th>Time Received</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let order of existingOrder">
+      <td>{{order.id}}</td>
+      <td>{{order.ticker}}</td>
+      <td>{{order.order_type}}</td>
+      <td>{{order.order_price}}</td>
+      <td>{{order.order_volumn}}</td>
+      <td>{{order.created_at | date:"MMM-dd-yyyy HH:MM:ss"}}</td>
+    </tr>
+    </tbody>
+  </table>
 </div>
