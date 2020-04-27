@@ -35,10 +35,24 @@ export class HeadlinesComponent implements OnInit {
 
   filterTitleHandler() {
     if (this.filterWord === null) {
-      return  this.filterZeroSentimentHandler();
+      return this.filterZeroSentimentHandler();
     } else {
-      return  this.filterZeroSentimentHandler()
+      return this.filterZeroSentimentHandler()
         .filter(article => article.title.toLowerCase().includes(this.filterWord.toLowerCase()));
+    }
+  }
+
+  avgSentScore(articleJsonList) {
+    let sumScore = 0;
+    for (let i = 0; i < articleJsonList.length; i++) {
+      sumScore += articleJsonList[i].sentiment;
+    }
+
+    const avgScore = (sumScore / articleJsonList.length).toFixed(4);
+    if (!isNaN(Number(avgScore))) {
+      return avgScore;
+    } else {
+      return 0;
     }
   }
 }

@@ -1,8 +1,13 @@
 <div>
 
+  <h5 align="center" class="senti_score_prefix">Overall Sentiment Score is <span
+    >{{avgSentScore(filterTitleHandler()) | number:'1.4'}}</span>
+  </h5>
+
+
   <div>
-    <form id="filterDiv" class="form-inline md-form mr-auto mb-4">
-      <input class="form-control mr-sm-2" type="search" name="filterTitle" id="filterField"
+    <form class="form-inline md-form mr-auto mb-4">
+      <input class="form-control mr-sm-2" type="search" name="filterTitle"
              placeholder="Type Here to Filter News Title"
              (keyup)="onKeyUpHandleFilterWord($event.target.value)"
              />
