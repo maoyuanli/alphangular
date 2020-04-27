@@ -1,6 +1,14 @@
 <h1>Password Generator</h1>
 
 <div>
+  <label>Enter Name</label>
+  <input (input)="onChangeName($event.target.value)"/>
+  <p>{{name | titlecase}}</p>
+</div>
+
+
+
+<div>
   <label>Enter Length</label>
   <input (input)="onChangeLength($event.target.value)"/>
 </div>

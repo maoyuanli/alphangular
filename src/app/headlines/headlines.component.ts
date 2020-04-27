@@ -17,5 +17,15 @@ export class HeadlinesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  filterArticles() {
+    const nonZero = this.articles.filter((article) => {
+      if (article.sentiment !== 0) {
+        return article;
+      } else {
+        return null;
+      }
+    });
+    return nonZero;
+  }
 
 }

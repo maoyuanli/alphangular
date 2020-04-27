@@ -1,5 +1,5 @@
 <h5>NASDAQ-100 PM Settlement Value (XQC) Movement is
-  <span> {{indexData.change}} </span>
+  <span> {{indexData.change | percent:'1.4'}} </span>
 </h5>
 
 <table class="table table-hover">
@@ -14,9 +14,9 @@
 
   <tbody>
   <tr>
-    <td>{{indexData.latest_date}}</td>
+    <td>{{indexData.latest_date | date}}</td>
     <td>{{indexData.latest_val}}</td>
-    <td>{{indexData.benchmark_date}}</td>
+    <td>{{indexData.benchmark_date | date}}</td>
     <td>{{indexData.benchmark_val}}</td>
   </tr>
   </tbody>

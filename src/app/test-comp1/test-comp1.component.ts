@@ -15,8 +15,13 @@ export class TestComp1Component implements OnInit {
   useNumbers = false;
   useSymbols = false;
   length = 0;
+  name = '';
 
   ngOnInit(): void {
+  }
+
+  onChangeName(value: string) {
+    this.name = value;
   }
 
   onButtonClick() {

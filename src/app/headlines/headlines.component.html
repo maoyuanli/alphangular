@@ -11,11 +11,11 @@
     </thead>
 
     <tbody>
-    <tr *ngFor="let article of articles">
+    <tr *ngFor="let article of filterArticles()" data-toggle="tooltip" title={{article.description}}>
       <td>{{article.title}}</td>
       <td>{{article.sentiment}}</td>
       <td>{{article.source.name}}</td>
-      <td>{{article.publishedAt}}</td>
+      <td>{{article.publishedAt | date:"MMM-dd-yyyy HH:MM"}}</td>
     </tr>
     </tbody>
   </table>

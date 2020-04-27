@@ -1,4 +1,5 @@
-.card-deck{
-  display: inline-flex;
-  justify-content: space-between;
+.card-columns{
+  display: flex;
+  flex-flow: row wrap;
 }
+
