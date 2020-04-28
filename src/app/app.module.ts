@@ -12,6 +12,7 @@ import {QuoteTradeModule} from './quote-trade/quote-trade.module';
 import {StartPageModule} from './start-page/start-page.module';
 import { AppRoutingModule } from './app-routing.module';
 import {RouterModule} from '@angular/router';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import {RouterModule} from '@angular/router';
     TestCardholderComponent,
     SearchnewsComponent,
     FeedbackComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,
