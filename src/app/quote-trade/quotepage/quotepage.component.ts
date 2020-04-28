@@ -10,6 +10,7 @@ import {map} from 'rxjs/operators';
 export class QuotepageComponent implements OnInit {
 
   quotes = [];
+  datePricePairs = [];
 
   constructor(private http: HttpClient) {
   }
@@ -34,4 +35,5 @@ export class QuotepageComponent implements OnInit {
         }
       );
   }
+
 }

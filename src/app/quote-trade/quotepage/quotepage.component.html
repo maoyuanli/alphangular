@@ -1,10 +1,11 @@
 <div class="row justify-content-center">
-  <div class="card-columns" *ngFor="let quote of quotes" >
+  <div class="card-columns" *ngFor="let quote of quotes">
     <app-quotecard
       [name]="quote.dataset.name"
       [newestAvailableDate]="quote.dataset.newest_available_date"
       [price]="quote.dataset.data[0][4]"
       [volume]="quote.dataset.data[0][5]"
+      [data]="quote.dataset.data"
     ></app-quotecard>
   </div>
 </div>

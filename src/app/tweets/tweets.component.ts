@@ -31,7 +31,6 @@ export class TweetsComponent implements OnInit {
     }))
       .subscribe(results => {
           this.tweets = Object.values(results[0]).slice(0, 30);
-          console.log(this.tweets);
         }
       );
   }
