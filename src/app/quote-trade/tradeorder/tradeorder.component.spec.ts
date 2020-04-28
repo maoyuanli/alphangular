@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TradeorderComponent } from './tradeorder.component';
+import {TradeorderComponent} from './tradeorder.component';
 
 describe('TradeorderComponent', () => {
   let component: TradeorderComponent;
@@ -8,9 +8,9 @@ describe('TradeorderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TradeorderComponent ]
+      declarations: [TradeorderComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

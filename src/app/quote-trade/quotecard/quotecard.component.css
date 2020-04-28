@@ -1,4 +1,4 @@
-.card{
+.card {
   margin: 20px;
   border: #ddd solid 1px;
   background: #f4f4f4;
@@ -10,7 +10,7 @@
   height: 400px;
 }
 
-.card:hover{
+.card:hover {
   margin: 12px;
   background: lightskyblue;
   box-shadow: 10px 10px grey;

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SearchnewsComponent } from './searchnews.component';
+import {SearchnewsComponent} from './searchnews.component';
 
 describe('SearchnewsComponent', () => {
   let component: SearchnewsComponent;
@@ -8,9 +8,9 @@ describe('SearchnewsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchnewsComponent ]
+      declarations: [SearchnewsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { QuoteAndTradePageComponent } from './quote-and-trade-page.component';
+import {QuoteAndTradePageComponent} from './quote-and-trade-page.component';
 
 describe('QuoteAndTradePageComponent', () => {
   let component: QuoteAndTradePageComponent;
@@ -8,9 +8,9 @@ describe('QuoteAndTradePageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QuoteAndTradePageComponent ]
+      declarations: [QuoteAndTradePageComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
