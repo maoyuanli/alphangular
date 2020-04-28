@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { StockindexComponent } from './stockindex.component';
+import {StockindexComponent} from './stockindex.component';
 
 describe('StockindexComponent', () => {
   let component: StockindexComponent;
@@ -8,9 +8,9 @@ describe('StockindexComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StockindexComponent ]
+      declarations: [StockindexComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
