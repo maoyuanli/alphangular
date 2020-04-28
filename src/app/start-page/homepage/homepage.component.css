@@ -1,0 +1,19 @@
+.jumbotron {
+  background-image: url("/assets/background.PNG");
+  background-size: cover;
+  display: flex;
+  justify-content: space-around;
+}
+
+#linkedin_mugshot {
+  border-radius: 50%;
+}
+
+.jumbotron-heading {
+  color: honeydew;
+}
+
+#sub_heading {
+  color: honeydew;
+  font-family: "Comic Sans MS";
+}

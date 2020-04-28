@@ -1,2 +1,31 @@
-<app-stockindex></app-stockindex>
-<app-headlines [articles]="fetchedArticles"></app-headlines>
+<div class="jumbotron text-center">
+
+  <div id="BuiltWith" class="container">
+    <h2 class="jumbotron-heading">Built with Microservices</h2>
+    <h1 class="jumbotron-heading">Powered by AI</h1>
+
+    <div>
+      <hr/>
+      <h3 id="sub_heading">The story between the Market and Sentiment</h3>
+    </div>
+  </div>
+  <div id="mugshot_div">
+    <div>
+      <img
+        id="linkedin_mugshot"
+        src="assets/linkedin_mugshot.jpg"
+        alt="Avatar" />
+    </div>
+    <div>
+      <a href="mailto:maoyuan@gmail.com" class="btn btn-primary my-2">Send Email to
+        Mao</a>
+    </div>
+  </div>
+
+</div>
+
+<div>
+  <app-stockindex></app-stockindex>
+  <app-headlines [articles]="fetchedArticles"></app-headlines>
+</div>
+
