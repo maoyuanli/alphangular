@@ -1,3 +1,7 @@
 .table{
   color: orange;
 }
+
+.form-control{
+  border-color: darkorange;
+}

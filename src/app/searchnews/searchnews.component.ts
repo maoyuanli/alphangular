@@ -40,4 +40,10 @@ export class SearchnewsComponent implements OnInit {
       )
     ;
   }
+
+  clearResult(event) {
+    this.keyword = '';
+    this.fetchedArticles = [];
+    event.preventDefault();
+  }
 }

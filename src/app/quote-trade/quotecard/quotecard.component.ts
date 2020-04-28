@@ -16,6 +16,8 @@ export class QuotecardComponent implements OnInit {
   extractedData = [];
   type = 'LineChart';
   options = {
+    width: 290,
+    height: 180,
     lineWidth: 3,
     vAxis: {
       title: 'Price',

@@ -1,8 +1,9 @@
 <form class="form-inline md-form mr-auto mb-4">
-  <input (input)="onChangeKeyword($event.target.value)" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-  <button (click)="onClickSearch()" class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
+  <input (input)="onChangeKeyword($event.target.value)" class="form-control mr-sm-2" type="text" placeholder="Search" [value]="keyword">
+  <button (click)="onClickSearch()" class="btn btn-outline-success" type="submit">Search</button>
+  <button (click)="clearResult($event)" type="submit" class="btn btn-outline-dark">Clear</button>
 </form>
 
-<div>
+<div >
   <app-headlines [articles]="fetchedArticles"></app-headlines>
 </div>
