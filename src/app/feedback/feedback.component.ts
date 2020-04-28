@@ -14,6 +14,10 @@ export class FeedbackComponent implements OnInit {
   comment = '';
   feedbackUrl = 'https://alphasmartback.herokuapp.com/api/feedback/';
   submitResult = '';
+  submitName = '';
+  submitEmail = '';
+  submitPhone = '';
+  submitComment = '';
 
   constructor(private http: HttpClient) {
   }
@@ -59,14 +63,32 @@ export class FeedbackComponent implements OnInit {
       })
     };
     this.http.post(this.feedbackUrl, feedbackData, httpOptions)
-    .subscribe({
-      next: data => {
-        console.log(data);
-        this.submitResult = String(data);
-        console.log(this.submitResult);
-      },
-      error: error => console.error('There was an error!', error)
-    });
+      .subscribe({
+        next: data => {
+          this.submitResult = String(Object.values(data));
+          this.popSubmitInfo();
+        },
+        error: error => console.error('There was an error!', error)
+      });
+
+    this.clearForm();
   }
 
+  clearForm() {
+    this.name = '';
+    this.email = '';
+    this.phone = '';
+    this.comment = '';
+  }
+
+  popSubmitInfo() {
+    if (this.submitResult !== '') {
+      const content = this.submitResult.split(':')[1];
+      const contentElems = content.split('|');
+      this.submitName = contentElems[0];
+      this.submitEmail = contentElems[1];
+      this.submitPhone = contentElems[2];
+      this.submitComment = contentElems[3];
+    }
+  }
 }
