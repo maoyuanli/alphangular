@@ -1,10 +1,10 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {TradeorderComponent} from './tradeorder/tradeorder.component';
+import {RouterModule, Routes} from '@angular/router';
+import {QuoteAndTradePageComponent} from './quote-and-trade-page/quote-and-trade-page.component';
 
 
 const routes: Routes = [
-  {path: 'trade', component: TradeorderComponent}
+  {path: 'trade', component: QuoteAndTradePageComponent}
 ];
 
 @NgModule({

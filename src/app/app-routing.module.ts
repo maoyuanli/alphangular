@@ -1,8 +1,13 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
+import {FeedbackComponent} from './feedback/feedback.component';
+import {SearchnewsComponent} from './searchnews/searchnews.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: 'feedback', component: FeedbackComponent},
+  {path: 'search', component: SearchnewsComponent}
+];
 
 @NgModule({
   declarations: [],
@@ -14,4 +19,5 @@ const routes: Routes = [];
     RouterModule
   ]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
