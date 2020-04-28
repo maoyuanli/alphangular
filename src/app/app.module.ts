@@ -13,6 +13,7 @@ import {StartPageModule} from './start-page/start-page.module';
 import { AppRoutingModule } from './app-routing.module';
 import {RouterModule} from '@angular/router';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { TweetsComponent } from './tweets/tweets.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     SearchnewsComponent,
     FeedbackComponent,
     PagenotfoundComponent,
+    TweetsComponent,
   ],
   imports: [
     BrowserModule,
