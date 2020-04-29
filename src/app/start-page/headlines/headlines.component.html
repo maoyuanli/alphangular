@@ -2,7 +2,10 @@
 
   <h3 align="center" class="senti_score_prefix">Overall Sentiment Score is
     <span [ngStyle]="{color: avgSentScore(filterTitleHandler()) >= 0 ? 'limeGreen' : 'tomato'}"
-    >{{avgSentScore(filterTitleHandler()) | number:'1.4'}}  <i class="thermometer half icon"></i></span>
+    >{{avgSentScore(filterTitleHandler()) | number:'1.4'}}
+      <i *ngIf="avgSentScore(filterTitleHandler()) > 0" class="long arrow alternate up icon" ></i>
+    <i *ngIf="avgSentScore(filterTitleHandler()) < 0" class="long arrow alternate down icon" ></i>
+    </span>
   </h3>
 
 
@@ -27,7 +30,7 @@
       <tbody>
       <tr *ngFor="let article of filterTitleHandler()" data-toggle="tooltip" title={{article.description}}>
         <td>{{article.title}}</td>
-        <td [ngStyle]="{color: article.sentiment >= 0 ? 'limeGreen' : 'tomato'}">{{article.sentiment}} </td>
+        <td [ngStyle]="{color: article.sentiment >= 0 ? 'limeGreen' : 'tomato'}">{{article.sentiment}}  </td>
         <td>{{article.source.name}}</td>
         <td>{{article.publishedAt | date:"MMM-dd HH:MM"}}</td>
       </tr>

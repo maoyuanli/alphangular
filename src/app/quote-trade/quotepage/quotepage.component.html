@@ -1,4 +1,8 @@
 <div class="row justify-content-center">
+  <footer class="footer mt-auto py-3"><cite title="Source Title"> <i class="info icon"></i> Disclaimer: </cite>  This website is
+    for demostrations purpose only. It does not offer investment advice and nothing in it should be
+    construed as investment advice.
+  </footer>
   <div class="card-columns" *ngFor="let quote of quotes">
     <app-quotecard
       [name]="quote.dataset.name"
@@ -8,10 +12,7 @@
       [data]="quote.dataset.data"
     ></app-quotecard>
   </div>
-  <footer class="footer mt-auto py-3"><cite title="Source Title"> <i class="info icon"></i> Disclaimer: </cite>  This website is
-    for demostrations purpose only. It does not offer investment advice and nothing in them should be
-    construed as investment advice.
-  </footer>
+
 </div>
 
 

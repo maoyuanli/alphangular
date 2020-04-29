@@ -1,6 +1,9 @@
-<h3>NASDAQ-100 PM Settlement Value (XQC) Movement is
+<h3 align="center">NASDAQ-100 PM (XQC) Movement is
   <span [ngStyle]="{color: indexData.change >= 0 ? 'limeGreen' : 'tomato'}"
-  > {{indexData.change | percent:'1.4'}} <i class="chart bar icon"></i></span>
+  > {{indexData.change | percent:'1.4'}}
+    <i *ngIf="indexData.change > 0" class="long arrow alternate up icon" ></i>
+    <i *ngIf="indexData.change < 0" class="long arrow alternate down icon" ></i>
+  </span>
 </h3>
 
 <table class="table table-hover">
@@ -16,9 +19,9 @@
   <tbody>
   <tr>
     <td>{{indexData.latest_date | date}}</td>
-    <td>{{indexData.latest_val}}</td>
+    <td><i class="chart bar icon"></i>  {{indexData.latest_val | number}}</td>
     <td>{{indexData.benchmark_date | date}}</td>
-    <td>{{indexData.benchmark_val}}</td>
+    <td><i class="chart bar icon"></i>  {{indexData.benchmark_val | number}}</td>
   </tr>
   </tbody>
 </table>
