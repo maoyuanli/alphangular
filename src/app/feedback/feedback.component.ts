@@ -59,7 +59,6 @@ export class FeedbackComponent implements OnInit {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        // 'Authorization': 'my-auth-token'
       })
     };
     this.http.post(this.feedbackUrl, feedbackData, httpOptions)
@@ -85,10 +84,7 @@ export class FeedbackComponent implements OnInit {
     if (this.submitResult !== '') {
       const content = this.submitResult.split(':')[1];
       const contentElems = content.split('|');
-      this.submitName = contentElems[0];
-      this.submitEmail = contentElems[1];
-      this.submitPhone = contentElems[2];
-      this.submitComment = contentElems[3];
+      [this.submitName, this.submitEmail, this.submitPhone, this.submitComment] = contentElems;
     }
   }
 }
