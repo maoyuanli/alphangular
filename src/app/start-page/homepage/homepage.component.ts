@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import {sentiment} from './sentilyzer.js';
 
 @Component({
   selector: 'app-homepage',
@@ -21,25 +22,41 @@ export class HomepageComponent implements OnInit {
   }
 
   onFetchHeadlines() {
-    this.fetchHeadlines();
+    // this.fetchHeadlines();
+    this.fetchHeadlinesDirect();
   }
 
-  private fetchHeadlines() {
-    this.http.get('https://alphasmartback.herokuapp.com/api/homepage/')
-      .pipe(map(res => {
-        const articlesArray = [];
-        for (const key in res) {
-          if (res.hasOwnProperty(key)) {
-            articlesArray.push({...res[key]});
-          }
-        }
-        return articlesArray;
-      }))
-      .subscribe(articles => {
-          this.fetchedArticles = Object.values(articles[0]);
-        }
-      )
-    ;
+  private fetchHeadlinesDirect() {
+
+    const directUrl = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=0cd11b45ffd949eaa03bbdbd23c5f95f';
+    this.http
+      .get(directUrl).subscribe(res => {
+      const data = Object.values(res);
+      const articles = data[2];
+      const articlesWithSent = [];
+      articles.forEach(article => {
+        articlesWithSent.push({...article, sentiment: sentiment.analyze(article.title).score});
+      });
+      this.fetchedArticles = articlesWithSent;
+    });
   }
+
+  // private fetchHeadlines() {
+  //   this.http.get('https://alphasmartback.herokuapp.com/api/homepage/')
+  //     .pipe(map(res => {
+  //       const articlesArray = [];
+  //       for (const key in res) {
+  //         if (res.hasOwnProperty(key)) {
+  //           articlesArray.push({...res[key]});
+  //         }
+  //       }
+  //       return articlesArray;
+  //     }))
+  //     .subscribe(articles => {
+  //         this.fetchedArticles = Object.values(articles[0]);
+  //       }
+  //     )
+  //   ;
+  // }
 
 }
