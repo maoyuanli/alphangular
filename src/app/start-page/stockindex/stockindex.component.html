@@ -1,8 +1,8 @@
 <h3 align="center">NASDAQ-100 PM (XQC) Movement is
   <span [ngStyle]="{color: indexData.change >= 0 ? 'limeGreen' : 'tomato'}"
   > {{indexData.change | percent:'1.4'}}
-    <i *ngIf="indexData.change > 0" class="long arrow alternate up icon" ></i>
-    <i *ngIf="indexData.change < 0" class="long arrow alternate down icon" ></i>
+    <i *ngIf="indexData.change > 0" class="long arrow alternate up icon"></i>
+    <i *ngIf="indexData.change < 0" class="long arrow alternate down icon"></i>
   </span>
 </h3>
 

@@ -6,3 +6,7 @@
 .form-control {
   border-color: darkorange;
 }
+
+#publishAt {
+  font-size: small;
+}

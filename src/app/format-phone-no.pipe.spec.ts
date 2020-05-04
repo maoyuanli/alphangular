@@ -1,4 +1,4 @@
-import { FormatPhoneNoPipe } from './format-phone-no.pipe';
+import {FormatPhoneNoPipe} from './format-phone-no.pipe';
 
 describe('FormatPhoneNoPipe', () => {
   it('create an instance', () => {

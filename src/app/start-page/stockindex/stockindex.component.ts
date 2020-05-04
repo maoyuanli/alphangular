@@ -16,7 +16,6 @@ export class StockindexComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.fetchStockIndex();
     this.fetchStockIndexDirect();
   }
 
@@ -45,15 +44,4 @@ export class StockindexComponent implements OnInit {
     );
   }
 
-  // fetchStockIndex() {
-  //   this.http.get(this.stockIndexUrl)
-  //     .pipe(map((res: Response) => {
-  //       return Object.values(res);
-  //     }))
-  //     .subscribe(market => {
-  //         this.indexData = market[0];
-  //       }
-  //     )
-  //   ;
-  // }
 }
