@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {sentiment} from './sentilyzer.js';
+import {UtilsService} from '../../shared/utils.service';
 
 @Component({
   selector: 'app-homepage',
@@ -13,7 +13,7 @@ export class HomepageComponent implements OnInit {
   fetchedArticles = [];
   fetchedArticlesAvgSent = 0;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private utilsService: UtilsService) {
   }
 
   ngOnInit(): void {
@@ -22,7 +22,6 @@ export class HomepageComponent implements OnInit {
   }
 
   onFetchHeadlines() {
-    // this.fetchHeadlines();
     this.fetchHeadlinesDirect();
   }
 
@@ -35,7 +34,7 @@ export class HomepageComponent implements OnInit {
       const articles = data[2];
       const articlesWithSent = [];
       articles.forEach(article => {
-        articlesWithSent.push({...article, sentiment: sentiment.analyze(article.title).score});
+        articlesWithSent.push({...article, sentiment: this.utilsService.getSentiment(article.title)});
       });
       let sentiSum = 0;
       articlesWithSent.forEach(a => {

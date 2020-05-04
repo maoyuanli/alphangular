@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {sentiment} from '../start-page/homepage/sentilyzer';
+import {UtilsService} from '../shared/utils.service';
 
 @Component({
   selector: 'app-searchnews',
@@ -12,7 +12,7 @@ export class SearchnewsComponent implements OnInit {
   keyword = '';
   fetchedArticles = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private utilsService: UtilsService) {
   }
 
   ngOnInit(): void {
@@ -29,7 +29,7 @@ export class SearchnewsComponent implements OnInit {
       const articles = data[2];
       const articlesWithSent = [];
       articles.forEach(article => {
-        articlesWithSent.push({...article, sentiment: sentiment.analyze(article.title).score});
+        articlesWithSent.push({...article, sentiment: this.utilsService.getSentiment(article.title)});
       });
       this.fetchedArticles = articlesWithSent;
     });

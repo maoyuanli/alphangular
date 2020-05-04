@@ -10,8 +10,7 @@ import {SharedRoutingModule} from './shared-routing.module';
     CommonModule,
     SharedRoutingModule
   ],
-  exports: [
-  ]
+  exports: []
 })
 export class SharedModule {
 }
