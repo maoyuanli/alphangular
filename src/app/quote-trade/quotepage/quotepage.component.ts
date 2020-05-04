@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import {UtilsService} from '../../shared/utils.service';
 
 @Component({
   selector: 'app-quotepage',
@@ -12,7 +13,7 @@ export class QuotepageComponent implements OnInit {
   quotes = [];
   datePricePairs = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private utilsService: UtilsService) {
   }
 
   ngOnInit(): void {
@@ -20,8 +21,7 @@ export class QuotepageComponent implements OnInit {
   }
 
   fetchQuotes() {
-    const quoteUrl = 'https://alphaspring.herokuapp.com/api/quote/';
-    this.http.get(quoteUrl).pipe(map(res => {
+    this.http.get(this.utilsService.getFullUrl('quote')).pipe(map(res => {
       const quotesArray = [];
       for (const key in res) {
         if (res.hasOwnProperty(key)) {

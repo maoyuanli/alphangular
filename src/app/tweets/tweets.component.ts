@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
+import {UtilsService} from '../shared/utils.service';
 
 @Component({
   selector: 'app-tweets',
@@ -11,7 +12,7 @@ export class TweetsComponent implements OnInit {
 
   tweets = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private utilsService: UtilsService) {
   }
 
   ngOnInit(): void {
@@ -19,8 +20,7 @@ export class TweetsComponent implements OnInit {
   }
 
   fetchTweets() {
-    const url = 'https://alphaspring.herokuapp.com/api/tweet/';
-    this.http.get(url).pipe(map(res => {
+    this.http.get(this.utilsService.getFullUrl('tweet')).pipe(map(res => {
       const resArray = [];
       for (const key in res) {
         if (res.hasOwnProperty(key)) {

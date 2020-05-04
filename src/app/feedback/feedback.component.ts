@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {UtilsService} from '../shared/utils.service';
 
 @Component({
   selector: 'app-feedback',
@@ -12,14 +13,13 @@ export class FeedbackComponent implements OnInit {
   email = '';
   phone = '';
   comment = '';
-  feedbackUrl = 'https://alphaspring.herokuapp.com/api/feedback/';
   submitResult = '';
   submitName = '';
   submitEmail = '';
   submitPhone = '';
   submitComment = '';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private utilsService: UtilsService) {
   }
 
   ngOnInit(): void {
@@ -61,7 +61,7 @@ export class FeedbackComponent implements OnInit {
         'Content-Type': 'application/json',
       })
     };
-    this.http.post(this.feedbackUrl, feedbackData, httpOptions)
+    this.http.post(this.utilsService.getFullUrl('feedback'), feedbackData, httpOptions)
       .subscribe({
         next: data => {
           this.submitResult = String(Object.values(data));

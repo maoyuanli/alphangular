@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import {UtilsService} from '../../shared/utils.service';
 
 @Component({
   selector: 'app-tradeorder',
@@ -13,12 +14,9 @@ export class TradeorderComponent implements OnInit {
   orderType = '';
   orderPrice = '';
   orderVolumn = '';
-  orderUrl = 'https://alphasmartback.herokuapp.com/api/order/';
-  getOrderUrl = 'https://alphaspring.herokuapp.com/api/getorder/';
-  setOrderUrl = 'https://alphaspring.herokuapp.com/api/setorder/';
   existingOrder = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private utilsService: UtilsService) {
   }
 
   ngOnInit(): void {
@@ -62,7 +60,7 @@ export class TradeorderComponent implements OnInit {
         // 'Authorization': 'my-auth-token'
       })
     };
-    this.http.post(this.setOrderUrl, orderData, httpOptions).subscribe({
+    this.http.post(this.utilsService.getFullUrl('setorder'), orderData, httpOptions).subscribe({
       next: order => {
         this.fetchOrders();
       },
@@ -71,7 +69,7 @@ export class TradeorderComponent implements OnInit {
   }
 
   fetchOrders() {
-    this.http.get(this.getOrderUrl).pipe(map(res => {
+    this.http.get(this.utilsService.getFullUrl('getorder')).pipe(map(res => {
       const orderArray = [];
       for (const key in res) {
         if (res.hasOwnProperty(key)) {
