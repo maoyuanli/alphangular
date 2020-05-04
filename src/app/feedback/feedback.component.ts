@@ -12,7 +12,7 @@ export class FeedbackComponent implements OnInit {
   email = '';
   phone = '';
   comment = '';
-  feedbackUrl = 'https://alphasmartback.herokuapp.com/api/feedback/';
+  feedbackUrl = 'https://alphaspring.herokuapp.com/api/feedback/';
   submitResult = '';
   submitName = '';
   submitEmail = '';

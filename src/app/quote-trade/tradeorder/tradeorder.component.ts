@@ -14,6 +14,8 @@ export class TradeorderComponent implements OnInit {
   orderPrice = '';
   orderVolumn = '';
   orderUrl = 'https://alphasmartback.herokuapp.com/api/order/';
+  getOrderUrl = 'https://alphaspring.herokuapp.com/api/getorder/';
+  setOrderUrl = 'https://alphaspring.herokuapp.com/api/setorder/';
   existingOrder = [];
 
   constructor(private http: HttpClient) {
@@ -60,7 +62,7 @@ export class TradeorderComponent implements OnInit {
         // 'Authorization': 'my-auth-token'
       })
     };
-    this.http.post(this.orderUrl, orderData, httpOptions).subscribe({
+    this.http.post(this.setOrderUrl, orderData, httpOptions).subscribe({
       next: order => {
         this.fetchOrders();
       },
@@ -69,7 +71,7 @@ export class TradeorderComponent implements OnInit {
   }
 
   fetchOrders() {
-    this.http.get(this.orderUrl).pipe(map(res => {
+    this.http.get(this.getOrderUrl).pipe(map(res => {
       const orderArray = [];
       for (const key in res) {
         if (res.hasOwnProperty(key)) {

@@ -20,7 +20,7 @@ export class QuotepageComponent implements OnInit {
   }
 
   fetchQuotes() {
-    const quoteUrl = 'https://alphasmartback.herokuapp.com/api/quote/';
+    const quoteUrl = 'https://alphaspring.herokuapp.com/api/quote/';
     this.http.get(quoteUrl).pipe(map(res => {
       const quotesArray = [];
       for (const key in res) {

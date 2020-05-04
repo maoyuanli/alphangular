@@ -70,10 +70,10 @@
     <tr *ngFor="let order of existingOrder">
       <td>{{order.id}}</td>
       <td>{{order.ticker}}</td>
-      <td>{{order.order_type}}</td>
-      <td>{{order.order_price}}</td>
-      <td>{{order.order_volumn | number}}</td>
-      <td>{{order.created_at | date:"MMM-dd-yyyy HH:MM:ss"}}</td>
+      <td>{{order.orderType}}</td>
+      <td>{{order.orderPrice}}</td>
+      <td>{{order.orderVolumn | number}}</td>
+      <td>{{order.createdDate | date:"MMM-dd-yyyy HH:mm:ss"}}</td>
     </tr>
     </tbody>
   </table>

@@ -6,8 +6,8 @@
         <div *ngFor="let tweet of tweets" class="ticker-item">
           <div>
             <p>
-              <img id="tweet_avatar" src={{tweet.user.profile_image_url_https}} alt="Avatar"/>
-              <span>@{{tweet.user.screen_name}} : </span>
+              <img id="tweet_avatar" src={{tweet.user.profileImageUrlHttps}} alt="Avatar"/>
+              <span>@{{tweet.user.screenName}} : </span>
               <span> {{tweet.text.split('https')[0]}} </span>
             </p>
           </div>

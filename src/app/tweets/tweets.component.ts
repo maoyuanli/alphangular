@@ -19,7 +19,7 @@ export class TweetsComponent implements OnInit {
   }
 
   fetchTweets() {
-    const url = 'https://alphasmartback.herokuapp.com/api/tweet/';
+    const url = 'https://alphaspring.herokuapp.com/api/tweet/';
     this.http.get(url).pipe(map(res => {
       const resArray = [];
       for (const key in res) {

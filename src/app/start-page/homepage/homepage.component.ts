@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {map} from 'rxjs/operators';
 import {sentiment} from './sentilyzer.js';
 
 @Component({
@@ -12,6 +11,7 @@ import {sentiment} from './sentilyzer.js';
 export class HomepageComponent implements OnInit {
 
   fetchedArticles = [];
+  fetchedArticlesAvgSent = 0;
 
   constructor(private http: HttpClient) {
   }
@@ -37,6 +37,11 @@ export class HomepageComponent implements OnInit {
       articles.forEach(article => {
         articlesWithSent.push({...article, sentiment: sentiment.analyze(article.title).score});
       });
+      let sentiSum = 0;
+      articlesWithSent.forEach(a => {
+        sentiSum += a.sentiment;
+      });
+      this.fetchedArticlesAvgSent = sentiSum / articlesWithSent.length;
       this.fetchedArticles = articlesWithSent;
     });
   }
