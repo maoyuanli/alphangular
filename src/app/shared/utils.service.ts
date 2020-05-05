@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {sentiment} from './sentilyzer';
+import * as AFINN from 'sentiment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,7 @@ export class UtilsService {
   }
 
   getSentiment(str: string) {
+    const sentiment = new AFINN();
     return sentiment.analyze(str).score;
   }
 }

@@ -24,9 +24,13 @@ export class StockindexComponent implements OnInit {
     this.http.get(this.stockIndexUrl).subscribe(
       res => {
         const data = Object.values(res)[0].data;
-        const latest = data[0];
+        let startIndex = 0;
+        while (data[startIndex][1] === 0) {
+          startIndex++;
+        }
+        const latest = data[startIndex];
         let benchmark;
-        for (let i = 1; i < data.length; i++) {
+        for (let i = startIndex + 1; i < data.length; i++) {
           if (this.avgSentScore >= 0 && data[i][1] < latest[1] || this.avgSentScore < 0 && data[i][1] > latest[1]) {
             benchmark = data[i];
             break;
