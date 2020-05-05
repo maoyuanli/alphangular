@@ -7,6 +7,7 @@ import * as AFINN from 'sentiment';
 export class UtilsService {
 
   private backendUrlPrefix = 'https://alphaspring.herokuapp.com/api/';
+  sentiment = new AFINN();
 
   constructor() {
   }
@@ -16,7 +17,6 @@ export class UtilsService {
   }
 
   getSentiment(str: string) {
-    const sentiment = new AFINN();
-    return sentiment.analyze(str).score;
+    return this.sentiment.analyze(str).score;
   }
 }
