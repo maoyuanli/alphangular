@@ -6,7 +6,9 @@ import * as AFINN from 'sentiment';
 })
 export class UtilsService {
 
-  private backendUrlPrefix = 'https://alphaspring.herokuapp.com/api/';
+  private devUrlPrefix = 'http://localhost:5000/api/';
+  private prodUrlPrefix = 'https://alphaspring.herokuapp.com/api/';
+  private backendUrlPrefix = this.devUrlPrefix;
   sentiment = new AFINN();
 
   constructor() {
