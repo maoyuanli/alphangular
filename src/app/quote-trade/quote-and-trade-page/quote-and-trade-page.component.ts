@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {AuthService} from '../../shared/auth.service';
 
 @Component({
   selector: 'app-quote-and-trade-page',
@@ -7,10 +8,25 @@ import {Component, OnInit} from '@angular/core';
 })
 export class QuoteAndTradePageComponent implements OnInit {
 
-  constructor() {
+  model: any = {
+    username: 'user@abc.com',
+    password: 'password'
+  };
+
+  constructor(private authService: AuthService) {
   }
 
   ngOnInit(): void {
+  }
+
+  login() {
+    console.log(this.model);
+    this.authService.login(this.model).subscribe(next => {
+        console.log('login success');
+      }, error => {
+        console.log('failed to login');
+      }
+    );
   }
 
 }

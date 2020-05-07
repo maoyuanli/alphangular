@@ -12,6 +12,7 @@ import {RouterModule} from '@angular/router';
 import {PagenotfoundComponent} from './pagenotfound/pagenotfound.component';
 import {TweetsComponent} from './tweets/tweets.component';
 import {FormatPhoneNoPipe} from './format-phone-no.pipe';
+import {AuthService} from './shared/auth.service';
 
 
 @NgModule({
@@ -30,9 +31,8 @@ import {FormatPhoneNoPipe} from './format-phone-no.pipe';
     QuoteTradeModule,
     StartPageModule,
     AppRoutingModule,
-    RouterModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
