@@ -8,7 +8,7 @@ export class UtilsService {
 
   private devUrlPrefix = 'http://localhost:5000/api/';
   private prodUrlPrefix = 'https://alphaspring.herokuapp.com/api/';
-  private backendUrlPrefix = this.devUrlPrefix;
+  private backendUrlPrefix = this.prodUrlPrefix;
   sentiment = new AFINN();
 
   constructor() {
