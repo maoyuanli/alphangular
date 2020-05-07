@@ -15,6 +15,13 @@ export class TradeorderComponent implements OnInit {
   orderPrice = '';
   orderVolumn = '';
   existingOrder = [];
+  token = localStorage.getItem('token');
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: this.token
+    })
+  };
 
   constructor(private http: HttpClient, private utilsService: UtilsService) {
   }
@@ -54,13 +61,8 @@ export class TradeorderComponent implements OnInit {
       }
     };
 
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        // 'Authorization': 'my-auth-token'
-      })
-    };
-    this.http.post(this.utilsService.getFullUrl('setorder'), orderData, httpOptions).subscribe({
+
+    this.http.post(this.utilsService.getFullUrl('setorder'), orderData, this.httpOptions).subscribe({
       next: order => {
         this.fetchOrders();
       },
@@ -69,7 +71,7 @@ export class TradeorderComponent implements OnInit {
   }
 
   fetchOrders() {
-    this.http.get(this.utilsService.getFullUrl('getorder')).pipe(map(res => {
+    this.http.get(this.utilsService.getFullUrl('getorder'), this.httpOptions).pipe(map(res => {
       const orderArray = [];
       for (const key in res) {
         if (res.hasOwnProperty(key)) {
@@ -88,4 +90,8 @@ export class TradeorderComponent implements OnInit {
       );
   }
 
+  logout() {
+    localStorage.removeItem('token');
+    console.log('logged out ...');
+  }
 }

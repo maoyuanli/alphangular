@@ -19,7 +19,6 @@ export class AuthService {
         // 'Authorization': 'my-auth-token'
       })
     };
-    console.log(model);
     return this.http.post(this.utilsService.getFullUrl('users/login'), model, httpOptions)
       .pipe(
         map(res => {

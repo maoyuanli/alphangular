@@ -20,13 +20,17 @@ export class QuoteAndTradePageComponent implements OnInit {
   }
 
   login() {
-    console.log(this.model);
     this.authService.login(this.model).subscribe(next => {
         console.log('login success');
       }, error => {
         console.log('failed to login');
       }
     );
+  }
+
+  alreadyLogin() {
+    const token = localStorage.getItem('token');
+    return !!token;
   }
 
 }

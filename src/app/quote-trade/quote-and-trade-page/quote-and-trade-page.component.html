@@ -1,5 +1,6 @@
 <div class="ui middle aligned center aligned grid">
-  <div class="container">
+  <app-quotepage></app-quotepage>
+  <div *ngIf="!alreadyLogin()" class="container">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
         <div class="card card-signin my-5">
@@ -8,7 +9,7 @@
               <h2 class="ui teal image header">
                 <i class="user icon"></i>
                 <div class="content">
-                  Log-in to your account
+                  Log-in to Trade
                 </div>
               </h2>
               <form #loginForm="ngForm" class="ui large form" (ngSubmit)="login()">
@@ -34,9 +35,9 @@
 
               </form>
 
-              <div class="ui message">
-                New to us? <a href="#">Sign Up</a>
-              </div>
+<!--              <div class="ui message">-->
+<!--                New to us? <a href="#">Sign Up</a>-->
+<!--              </div>-->
 
             </div>
           </div>
@@ -45,6 +46,9 @@
     </div>
   </div>
 
-  <app-quotepage></app-quotepage>
-  <app-tradeorder></app-tradeorder>
+  <div *ngIf="alreadyLogin()">
+
+    <app-tradeorder></app-tradeorder>
+  </div>
+
 </div>
