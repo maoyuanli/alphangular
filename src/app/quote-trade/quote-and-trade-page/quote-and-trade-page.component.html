@@ -34,6 +34,15 @@
                 <div class="ui error message"></div>
 
               </form>
+              <div class="ui comments" *ngIf="failedLogin">
+                <h5 class="ui dividing header">Login Failed Please Use the Complimentary Account as Below</h5>
+                <div class="comment">
+                  <div class="content">
+                    <div class="text">username: <i class="user icon"></i>user@abc.com</div>
+                    <div class="text">password: <i class="key icon"></i>password</div>
+                  </div>
+                </div>
+              </div>
 
 <!--              <div class="ui message">-->
 <!--                New to us? <a href="#">Sign Up</a>-->

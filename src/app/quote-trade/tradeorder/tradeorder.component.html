@@ -43,17 +43,19 @@
                placeholder="Enter "/>
       </div>
     </div>
+
     <button type="submit"
-            class="btn btn-success"
+            class="btn btn-warning"
+            (click)="logout()"
+    >Logout
+    </button>
+
+    <button type="submit"
+            class="btn btn-success float-right"
             (click)="onSubmitHandler($event)"
     >Submit Order
     </button>
 
-    <button type="submit"
-            class="btn btn-warning float-right"
-            (click)="logout()"
-    >Logout
-    </button>
   </form>
 
   <div class="ui horizontal divider">

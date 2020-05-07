@@ -13,6 +13,8 @@ export class QuoteAndTradePageComponent implements OnInit {
     password: 'password'
   };
 
+  failedLogin = false;
+
   constructor(private authService: AuthService) {
   }
 
@@ -21,9 +23,9 @@ export class QuoteAndTradePageComponent implements OnInit {
 
   login() {
     this.authService.login(this.model).subscribe(next => {
-        console.log('login success');
+        this.failedLogin = false;
       }, error => {
-        console.log('failed to login');
+        this.failedLogin = true;
       }
     );
   }
