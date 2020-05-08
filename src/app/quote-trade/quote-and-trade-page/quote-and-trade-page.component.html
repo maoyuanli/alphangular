@@ -11,7 +11,7 @@
                 </div>
               </h2>
               <form #loginForm="ngForm" class="ui large form" (ngSubmit)="login()">
-                <div class="fields">
+                <div class="fields justify-content-center">
                   <div class="field">
                     <div class="ui left icon input">
                       <i class="user icon"></i>
@@ -26,7 +26,7 @@
                              [(ngModel)]="model.password">
                     </div>
                   </div>
-                  <button class="ui fluid large teal submit button" type="submit">Login</button>
+                  <button id="loginBtn" class="ui fluid small teal submit button" type="submit">Login</button>
                 </div>
 
                 <div class="ui error message"></div>
