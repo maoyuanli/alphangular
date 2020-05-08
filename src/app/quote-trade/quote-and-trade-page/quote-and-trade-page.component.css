@@ -2,3 +2,8 @@
   width: 220px;
 }
 
+#loginTextHeader{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
