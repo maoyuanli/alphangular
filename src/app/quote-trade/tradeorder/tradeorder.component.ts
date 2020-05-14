@@ -92,6 +92,5 @@ export class TradeorderComponent implements OnInit {
 
   logout() {
     localStorage.removeItem('token');
-    console.log('logged out ...');
   }
 }

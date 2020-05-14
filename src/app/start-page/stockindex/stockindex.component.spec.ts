@@ -20,12 +20,11 @@ describe('StockindexComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should generate proper dates range', () => {
+    const baseDate = new Date(2020, 2, 15);
+    spyOn(Date, 'now').and.returnValue(baseDate.getTime());
+    const result = component.createDateRangeString(180);
+    expect(result).toBe('&start_date=2019-09-17&end_date=2020-03-15');
   });
 
-  it('should generate proper dates range', () => {
-    const result = component.createDateRangeString(180);
-    expect(result).toBe('&start_date=2019-11-16&end_date=2020-05-14');
-  });
 });
