@@ -1,6 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {QuotepageComponent} from './quotepage.component';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('QuotepageComponent', () => {
   let component: QuotepageComponent;
@@ -8,6 +9,7 @@ describe('QuotepageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientModule],
       declarations: [QuotepageComponent]
     })
       .compileComponents();

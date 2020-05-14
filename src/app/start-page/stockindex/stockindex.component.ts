@@ -19,9 +19,17 @@ export class StockindexComponent implements OnInit {
     this.fetchStockIndexDirect();
   }
 
-  fetchStockIndexDirect() {
+  createDateRangeString(daysAgo: number) {
+    const today = Date.now();
+    const start = new Date(today - (daysAgo * 24 * 60 * 60 * 1000));
+    const end = new Date(today);
+    const formattedEnd = end.toISOString().split('T')[0];
+    const formattedStart = start.toISOString().split('T')[0];
+    return `&start_date=${formattedStart}&end_date=${formattedEnd}`;
+  }
 
-    this.http.get(this.stockIndexUrl).subscribe(
+  fetchStockIndexDirect() {
+    this.http.get(this.stockIndexUrl + this.createDateRangeString(180)).subscribe(
       res => {
         const data = Object.values(res)[0].data;
         let startIndex = 0;

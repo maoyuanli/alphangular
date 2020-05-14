@@ -1,6 +1,7 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {TradeorderComponent} from './tradeorder.component';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('TradeorderComponent', () => {
   let component: TradeorderComponent;
@@ -8,6 +9,7 @@ describe('TradeorderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientModule],
       declarations: [TradeorderComponent]
     })
       .compileComponents();

@@ -1,6 +1,8 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {QuoteAndTradePageComponent} from './quote-and-trade-page.component';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
 
 describe('QuoteAndTradePageComponent', () => {
   let component: QuoteAndTradePageComponent;
@@ -8,6 +10,7 @@ describe('QuoteAndTradePageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientModule, FormsModule],
       declarations: [QuoteAndTradePageComponent]
     })
       .compileComponents();
