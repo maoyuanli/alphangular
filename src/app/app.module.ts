@@ -8,7 +8,6 @@ import {FeedbackComponent} from './feedback/feedback.component';
 import {QuoteTradeModule} from './quote-trade/quote-trade.module';
 import {StartPageModule} from './start-page/start-page.module';
 import {AppRoutingModule} from './app-routing.module';
-import {RouterModule} from '@angular/router';
 import {PagenotfoundComponent} from './pagenotfound/pagenotfound.component';
 import {TweetsComponent} from './tweets/tweets.component';
 import {FormatPhoneNoPipe} from './format-phone-no.pipe';
