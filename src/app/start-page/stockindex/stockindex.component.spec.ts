@@ -17,6 +17,7 @@ describe('StockindexComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(StockindexComponent);
     component = fixture.componentInstance;
+    component.avgSentScore = Math.random() - 0.5;
     fixture.detectChanges();
   });
 
@@ -27,4 +28,13 @@ describe('StockindexComponent', () => {
     expect(result).toBe('&start_date=2019-09-17&end_date=2020-03-15');
   });
 
+  it('index return should go with avg sentiment score', async(() => {
+    component.fetchStockIndexDirect();
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      const givenAvgSentScore = Number(component.avgSentScore);
+      const calculatedReturn = Number(component.indexData.change);
+      expect(givenAvgSentScore * calculatedReturn).toBeGreaterThan(0);
+    });
+  }));
 });
