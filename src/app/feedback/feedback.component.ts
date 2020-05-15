@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {UtilsService} from '../shared/utils.service';
 
@@ -19,10 +19,13 @@ export class FeedbackComponent implements OnInit {
   submitPhone = '';
   submitComment = '';
 
-  constructor(private http: HttpClient, private utilsService: UtilsService) {
+  constructor(private http: HttpClient,
+              private utilsService: UtilsService,
+              private elementRef: ElementRef) {
   }
 
   ngOnInit(): void {
+    document.body.appendChild(this.elementRef.nativeElement);
   }
 
   onChangeName(value: string) {
