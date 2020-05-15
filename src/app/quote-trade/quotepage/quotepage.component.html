@@ -1,27 +1,27 @@
 <div class="row justify-content-center">
   <nav>
     <ul class="pagination">
-      <li class="page-item" [ngClass]="{disabled: currentPage===0}">
+      <li class="page-item" [ngClass]="{disabled: currentPage===1}">
         <a class="page-link" (click)="currentPage = currentPage -1">Prev</a>
       </li>
       <li class="page-item"
           [ngClass]="{active: i ===currentPage}"
-          *ngFor="let quote of quotes ; let i = index">
-        <a class="page-link" (click)="currentPage = i">{{i + 1}}</a>
+          *ngFor="let i of [1,2]">
+        <a class="page-link" (click)="currentPage = i">{{i}}</a>
       </li>
-      <li class="page-item" [ngClass]="{disabled: currentPage===quotes.length-1}">
+      <li class="page-item" [ngClass]="{disabled: currentPage===2}">
         <a class="page-link" (click)="currentPage = currentPage + 1">Next</a>
       </li>
     </ul>
   </nav>
-  <div class="card-columns">
-        <app-quotecard
-          [name]="quotes[currentPage].dataset.name"
-          [newestAvailableDate]="quotes[currentPage].dataset.newest_available_date"
-          [price]="quotes[currentPage].dataset.data[0][4]"
-          [volume]="quotes[currentPage].dataset.data[0][5]"
-          [data]="quotes[currentPage].dataset.data"
-        ></app-quotecard>
+  <div class="card-columns" *ngFor="let quote of quotes.slice((currentPage-1)*3, (currentPage-1)*3+3)">
+    <app-quotecard
+      [name]="quote.dataset.name"
+      [newestAvailableDate]="quote.dataset.newest_available_date"
+      [price]="quote.dataset.data[0][4]"
+      [volume]="quote.dataset.data[0][5]"
+      [data]="quote.dataset.data"
+    ></app-quotecard>
   </div>
 </div>
 
