@@ -12,7 +12,7 @@ export class QuotepageComponent implements OnInit {
 
   quotes = [];
   currentPage = 1;
-
+  showDailyTips = true;
 
   constructor(private http: HttpClient, private utilsService: UtilsService) {
   }
@@ -35,6 +35,10 @@ export class QuotepageComponent implements OnInit {
           this.quotes = Object.values(quotes[0]);
         }
       );
+  }
+
+  clearDailyTip() {
+    this.showDailyTips = false;
   }
 
 }

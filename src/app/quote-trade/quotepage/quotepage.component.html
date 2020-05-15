@@ -8,7 +8,6 @@
   </footer>
 </div>
 <div class="row justify-content-center">
-
   <nav>
     <ul class="pagination">
       <li class="page-item" [ngClass]="{disabled: currentPage===1}">
@@ -25,6 +24,17 @@
     </ul>
   </nav>
 </div>
+
+<div class="ui info message" *ngIf="showDailyTips">
+  <i class="close icon" (click)="clearDailyTip()"></i>
+  <div class="header">
+    Daily Tips
+  </div>
+  <ul class="list">
+    <li>Hover on the chart line to see daily price level.</li>
+  </ul>
+</div>
+
 <div class="row justify-content-center">
   <div class="card-columns" *ngFor="let quote of quotes.slice((currentPage-1)*3, (currentPage-1)*3+3)">
     <app-quotecard
