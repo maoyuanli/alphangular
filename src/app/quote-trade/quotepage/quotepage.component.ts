@@ -11,7 +11,8 @@ import {UtilsService} from '../../shared/utils.service';
 export class QuotepageComponent implements OnInit {
 
   quotes = [];
-  datePricePairs = [];
+  currentPage = 0;
+
 
   constructor(private http: HttpClient, private utilsService: UtilsService) {
   }

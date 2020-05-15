@@ -1,19 +1,45 @@
 <div class="row justify-content-center">
-  <footer class="footer mt-auto py-3"><cite title="Source Title"> <i class="info icon"></i> Disclaimer: </cite> This
-    website is
-    for demostrations purpose only. It does not offer investment advice and nothing in it should be
-    construed as investment advice.
-  </footer>
-  <div class="card-columns" *ngFor="let quote of quotes">
-    <app-quotecard
-      [name]="quote.dataset.name"
-      [newestAvailableDate]="quote.dataset.newest_available_date"
-      [price]="quote.dataset.data[0][4]"
-      [volume]="quote.dataset.data[0][5]"
-      [data]="quote.dataset.data"
-    ></app-quotecard>
+  <nav>
+    <ul class="pagination">
+      <li class="page-item" [ngClass]="{disabled: currentPage===0}">
+        <a class="page-link" (click)="currentPage = currentPage -1">Prev</a>
+      </li>
+      <li class="page-item"
+          [ngClass]="{active: i ===currentPage}"
+          *ngFor="let quote of quotes ; let i = index">
+        <a class="page-link" (click)="currentPage = i">{{i + 1}}</a>
+      </li>
+      <li class="page-item" [ngClass]="{disabled: currentPage===quotes.length-1}">
+        <a class="page-link" (click)="currentPage = currentPage + 1">Next</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="card-columns">
+        <app-quotecard
+          [name]="quotes[currentPage].dataset.name"
+          [newestAvailableDate]="quotes[currentPage].dataset.newest_available_date"
+          [price]="quotes[currentPage].dataset.data[0][4]"
+          [volume]="quotes[currentPage].dataset.data[0][5]"
+          [data]="quotes[currentPage].dataset.data"
+        ></app-quotecard>
   </div>
-
 </div>
+
+<!--<div class="row justify-content-center">-->
+<!--  <footer class="footer mt-auto py-3"><cite title="Source Title"> <i class="info icon"></i> Disclaimer: </cite> This-->
+<!--    website is-->
+<!--    for demostrations purpose only. It does not offer investment advice and nothing in it should be-->
+<!--    construed as investment advice.-->
+<!--  </footer>-->
+<!--  <div class="card-columns" *ngFor="let quote of quotes">-->
+<!--    <app-quotecard-->
+<!--      [name]="quote.dataset.name"-->
+<!--      [newestAvailableDate]="quote.dataset.newest_available_date"-->
+<!--      [price]="quote.dataset.data[0][4]"-->
+<!--      [volume]="quote.dataset.data[0][5]"-->
+<!--      [data]="quote.dataset.data"-->
+<!--    ></app-quotecard>-->
+<!--  </div>-->
+<!--</div>-->
 
 
