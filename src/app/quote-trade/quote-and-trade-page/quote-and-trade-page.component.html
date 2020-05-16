@@ -52,10 +52,10 @@
     </div>
   </div>
 
-  <div *ngIf="alreadyLogin()">
-
-    <app-tradeorder></app-tradeorder>
-
+  <div class="ui dimmer visible active" *ngIf="alreadyLogin()">
+    <div class="ui modal visible active">
+      <app-tradeorder></app-tradeorder>
+    </div>
   </div>
   <app-quotepage></app-quotepage>
 </div>
