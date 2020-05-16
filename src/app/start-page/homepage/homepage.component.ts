@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {UtilsService} from '../../shared/utils.service';
+import {UtilsService} from '../../shared/services/utils-service/utils.service';
 
 @Component({
   selector: 'app-homepage',

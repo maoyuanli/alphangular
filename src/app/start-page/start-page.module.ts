@@ -3,18 +3,18 @@ import {CommonModule} from '@angular/common';
 
 import {StartPageRoutingModule} from './start-page-routing.module';
 import {HomepageComponent} from './homepage/homepage.component';
-import {HeadlinesComponent} from './headlines/headlines.component';
 import {StockindexComponent} from './stockindex/stockindex.component';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
-  declarations: [HomepageComponent, HeadlinesComponent, StockindexComponent],
+  declarations: [HomepageComponent, StockindexComponent],
   imports: [
     CommonModule,
-    StartPageRoutingModule
+    StartPageRoutingModule,
+    SharedModule
   ],
   exports: [
     HomepageComponent,
-    HeadlinesComponent,
     StockindexComponent
   ]
 })

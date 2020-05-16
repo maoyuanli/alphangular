@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {UtilsService} from './utils.service';
+import {UtilsService} from '../utils-service/utils.service';
 import {map} from 'rxjs/operators';
 
 @Injectable({

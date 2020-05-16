@@ -1,6 +1,6 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {UtilsService} from '../shared/utils.service';
+import {UtilsService} from '../shared/services/utils-service/utils.service';
 
 @Component({
   selector: 'app-feedback',
@@ -86,8 +86,7 @@ export class FeedbackComponent implements OnInit {
   popSubmitInfo() {
     if (this.submitResult !== '') {
       const content = this.submitResult.split(':')[1];
-      const contentElems = content.split('|');
-      [this.submitName, this.submitEmail, this.submitPhone, this.submitComment] = contentElems;
+      [this.submitName, this.submitEmail, this.submitPhone, this.submitComment] = content.split('|');
     }
   }
 

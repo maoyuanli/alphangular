@@ -10,8 +10,8 @@ import {StartPageModule} from './start-page/start-page.module';
 import {AppRoutingModule} from './app-routing.module';
 import {PagenotfoundComponent} from './pagenotfound/pagenotfound.component';
 import {TweetsComponent} from './tweets/tweets.component';
-import {FormatPhoneNoPipe} from './format-phone-no.pipe';
-import {AuthService} from './shared/auth.service';
+import {AuthService} from './shared/services/auth-service/auth.service';
+import {SharedModule} from './shared/shared.module';
 
 
 @NgModule({
@@ -20,8 +20,7 @@ import {AuthService} from './shared/auth.service';
     SearchnewsComponent,
     FeedbackComponent,
     PagenotfoundComponent,
-    TweetsComponent,
-    FormatPhoneNoPipe,
+    TweetsComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +29,7 @@ import {AuthService} from './shared/auth.service';
     QuoteTradeModule,
     StartPageModule,
     AppRoutingModule,
+    SharedModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
