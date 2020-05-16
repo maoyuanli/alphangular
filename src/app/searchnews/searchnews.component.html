@@ -3,17 +3,34 @@
          [value]="keyword">
   <button (click)="onClickSearchDirect()" class="btn btn-outline-success" type="submit">Search</button>
   <button (click)="clearResult($event)" type="submit" class="btn btn-outline-dark">Clear</button>
+  <div class="ui labeled button" tabindex="0" (click)="showWiki=true" *ngIf="wikiArticles.length>0" >
+    <div class="ui basic blue button">
+      <i class="fork icon"></i> more on wiki
+    </div>
+    <a class="ui basic left pointing blue label left aligned">
+      {{wikiArticles.length}} articles
+    </a>
+  </div>
+
 </form>
 
-<div class="ui styled accordion">
-  <ng-container *ngFor="let article of wikiArticles, let i = index">
-    <div class="title" (click)="onClickWikiArticle(i)" [ngClass]="{active: i === openedWikiArticle}">
-      <i class="dropdown icon"></i>
-      {{article.title}}
+<div class="ui dimmer visible active" *ngIf="showWiki">
+  <div class="ui modal visible active">
+    <div class="scrolling content">
+      <div class="ui styled accordion">
+        <ng-container *ngFor="let article of wikiArticles, let i = index">
+          <div class="title" (click)="onClickWikiArticle(i)" [ngClass]="{active: i === openedWikiArticle}">
+            <i class="dropdown icon"></i>
+            {{article.title}}
+          </div>
+          <div class="content" [ngClass]="{active: i === openedWikiArticle}" [innerHTML]="article.snippet">
+          </div>
+        </ng-container>
+      </div>
     </div>
-    <div class="content" [ngClass]="{active: i === openedWikiArticle}" [innerHTML]="article.snippet">
-    </div>
-  </ng-container>
+    <button class="ui positive labeled icon button" (click)="showWiki=false"><i class="checkmark icon"></i>Close
+    </button>
+  </div>
 </div>
 
 <div>

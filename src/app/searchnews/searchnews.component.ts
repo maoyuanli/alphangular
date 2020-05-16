@@ -14,6 +14,7 @@ export class SearchnewsComponent implements OnInit {
   newsArticles = [];
   wikiArticles = [];
   openedWikiArticle = 0;
+  showWiki = false;
 
   constructor(private http: HttpClient,
               private utilsService: UtilsService,
@@ -43,6 +44,7 @@ export class SearchnewsComponent implements OnInit {
   clearResult(event) {
     this.keyword = '';
     this.newsArticles = [];
+    this.wikiArticles = [];
     event.preventDefault();
   }
 
@@ -50,7 +52,7 @@ export class SearchnewsComponent implements OnInit {
     if (index === this.openedWikiArticle) {
       this.openedWikiArticle = -1;
     } else {
-      this.openedWikiArticle = index
+      this.openedWikiArticle = index;
     }
 
   }
