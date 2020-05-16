@@ -15,7 +15,7 @@
   width: calc(50% - 50px) !important;
 }
 
-.content{
+.content {
   display: flex;
   align-items: center;
   justify-items: center;
