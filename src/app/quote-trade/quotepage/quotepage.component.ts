@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
-import {UtilsService} from '../../shared/services/utils-service/utils.service';
+import {UtilsService} from '../../services/utils-service/utils.service';
 
 @Component({
   selector: 'app-quotepage',

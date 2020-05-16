@@ -8,7 +8,7 @@ import {TradeorderComponent} from './tradeorder/tradeorder.component';
 import {QuoteAndTradePageComponent} from './quote-and-trade-page/quote-and-trade-page.component';
 import {GoogleChartsModule} from 'angular-google-charts';
 import {FormsModule} from '@angular/forms';
-import {AuthService} from '../shared/services/auth-service/auth.service';
+import {AuthService} from '../services/auth-service/auth.service';
 
 @NgModule({
   declarations: [QuotepageComponent, QuotecardComponent, TradeorderComponent, QuoteAndTradePageComponent],

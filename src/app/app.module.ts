@@ -10,7 +10,7 @@ import {StartPageModule} from './start-page/start-page.module';
 import {AppRoutingModule} from './app-routing.module';
 import {PagenotfoundComponent} from './pagenotfound/pagenotfound.component';
 import {TweetsComponent} from './tweets/tweets.component';
-import {AuthService} from './shared/services/auth-service/auth.service';
+import {AuthService} from './services/auth-service/auth.service';
 import {SharedModule} from './shared/shared.module';
 
 

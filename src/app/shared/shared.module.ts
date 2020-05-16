@@ -9,7 +9,7 @@ import {FormatPhoneNoPipe} from './pipes/format-phone-no.pipe';
 @NgModule({
   declarations: [
     HeadlinesComponent,
-    FormatPhoneNoPipe
+    FormatPhoneNoPipe,
   ],
   imports: [
     CommonModule,

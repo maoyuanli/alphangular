@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {UtilsService} from '../shared/services/utils-service/utils.service';
+import {UtilsService} from '../services/utils-service/utils.service';
 
 @Component({
   selector: 'app-searchnews',
@@ -16,10 +16,6 @@ export class SearchnewsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
-
-  onChangeKeyword(typed: string) {
-    this.keyword = typed;
   }
 
   onClickSearchDirect() {
