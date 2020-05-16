@@ -32,37 +32,32 @@
     </button>
   </form>
 
-  <div class="ui comments" *ngIf="submitResult">
-    <h3 class="ui dividing header">Thank you for your feedback</h3>
-    <div class="comment">
-      <a class="avatar">
-        <i class="user icon"></i>
-      </a>
-      <div class="content">
-        <div class="author">{{submitName}}</div>
-        <br>
-        <div class="text"><i class="phone icon"></i>{{submitPhone | formatPhoneNo}}</div>
-        <div class="text"><i class="envelope icon"></i>{{submitEmail}}</div>
-        <div class="text">
-          <i class="quote left icon"></i>{{submitComment}}
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="ui dimmer visible active">
+  <div class="ui dimmer visible active" *ngIf="submitResult">
     <div class="ui modal visible active">
       <i class="close icon"></i>
       <div class="header">
-        MODAL!
+        Thank you for your feedback
       </div>
       <div class="content">
-        <p>
-          Some content for the modal window should go right here!
-        </p>
+        <div class="ui comments">
+          <div class="comment">
+            <a class="avatar">
+              <i class="user icon"></i>
+            </a>
+            <div class="content">
+              <div class="author">{{submitName}}</div>
+              <br>
+              <div class="text"><i class="phone icon"></i>{{submitPhone | formatPhoneNo}}</div>
+              <div class="text"><i class="envelope icon"></i>{{submitEmail}}</div>
+              <div class="text">
+                <i class="quote left icon"></i>{{submitComment}}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="actions">
-        <button class="ui button">OK</button>
+        <button class="ui positive labeled icon button" (click)="clearSubmitResult()"><i class="checkmark icon"></i>Close</button>
       </div>
     </div>
   </div>

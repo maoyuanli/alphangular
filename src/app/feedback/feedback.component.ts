@@ -90,4 +90,8 @@ export class FeedbackComponent implements OnInit {
       [this.submitName, this.submitEmail, this.submitPhone, this.submitComment] = contentElems;
     }
   }
+
+  clearSubmitResult() {
+    this.submitResult = '';
+  }
 }
