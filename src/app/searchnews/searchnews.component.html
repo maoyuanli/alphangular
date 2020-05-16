@@ -5,6 +5,17 @@
   <button (click)="clearResult($event)" type="submit" class="btn btn-outline-dark">Clear</button>
 </form>
 
+<div class="ui styled accordion">
+  <ng-container *ngFor="let article of wikiArticles, let i = index">
+    <div class="title" (click)="onClickWikiArticle(i)" [ngClass]="{active: i === openedWikiArticle}">
+      <i class="dropdown icon"></i>
+      {{article.title}}
+    </div>
+    <div class="content" [ngClass]="{active: i === openedWikiArticle}" [innerHTML]="article.snippet">
+    </div>
+  </ng-container>
+</div>
+
 <div>
-  <app-headlines [articles]="fetchedArticles"></app-headlines>
+  <app-headlines [articles]="newsArticles"></app-headlines>
 </div>
