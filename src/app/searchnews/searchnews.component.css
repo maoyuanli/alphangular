@@ -9,7 +9,7 @@
   transform-origin: center !important;
   transition: all ease .5s;
   height: calc(50% - 50px) !important;
-  width: calc(80% - 50px) !important;
+  width: calc(100% - 10px) !important;
 }
 
 .ui.segment{
@@ -19,4 +19,14 @@
   align-items: center;
   text-align: center;
   min-height: 50vh;
+}
+
+.ui.styled.accordion{
+  width: calc(100% - 10px) !important;
+  font-size: medium;
+  text-align: justify;
+}
+
+.ui.left.icon.input{
+  width: 280px !important;
 }
