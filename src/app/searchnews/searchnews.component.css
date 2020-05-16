@@ -12,6 +12,11 @@
   width: calc(80% - 50px) !important;
 }
 
-.ui.right.pointing{
-  font-size: small;
+.ui.segment{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 50vh;
 }

@@ -1,9 +1,11 @@
+<div class="ui segment" >
+  <img class="ui centered medium image" src="assets/deep_dive_search.png" *ngIf="newsArticles.length===0">
+
 <form class="ui form">
+
   <div class="fields justify-content-center">
+
     <div class=" inline field">
-      <div class="ui right pointing orange basic label" *ngIf="newsArticles.length===0">
-        Dive Deeper into a Topic
-      </div>
       <input (input)="keyword=$event.target.value" class="ui left icon input" type="text" placeholder="Search"
              [value]="keyword">
     </div>
@@ -16,10 +18,10 @@
     <div class="field">
       <div id="wikiButton" class="ui labeled button right aligned" tabindex="0" (click)="showWiki=true"
            *ngIf="wikiArticles.length>0">
-        <div class="ui basic blue button">
+        <div class="ui basic green button">
           <i class="fork icon"></i> more on wiki
         </div>
-        <a class="ui basic left pointing blue label right floated">
+        <a class="ui basic left pointing green label right floated">
           {{wikiArticles.length}} articles
         </a>
       </div>
@@ -50,4 +52,6 @@
 
 <div>
   <app-headlines [articles]="newsArticles"></app-headlines>
+</div>
+
 </div>

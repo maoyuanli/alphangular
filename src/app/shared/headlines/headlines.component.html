@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="articles.length>0">
 
   <h3 align="center" class="senti_score_prefix">Overall Sentiment Score is
     <span [ngStyle]="{color: avgSentScore(filterTitleHandler()) >= 0 ? 'limeGreen' : 'tomato'}"
