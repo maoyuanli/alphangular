@@ -42,10 +42,6 @@
               </div>
             </div>
 
-            <!--              <div class="ui message">-->
-            <!--                New to us? <a href="#">Sign Up</a>-->
-            <!--              </div>-->
-
           </div>
         </div>
       </div>
@@ -54,7 +50,9 @@
 
   <div class="ui dimmer visible active" *ngIf="alreadyLogin()">
     <div class="ui modal visible active">
-      <app-tradeorder></app-tradeorder>
+      <div class="scrolling content">
+        <app-tradeorder></app-tradeorder>
+      </div>
     </div>
   </div>
   <app-quotepage></app-quotepage>
