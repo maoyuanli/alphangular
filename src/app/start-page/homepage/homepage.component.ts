@@ -13,6 +13,7 @@ export class HomepageComponent implements OnInit {
 
   fetchedArticles = [];
   fetchedArticlesAvgSent = 0;
+  imageStories = [];
 
   constructor(private http: HttpClient,
               private utilsService: UtilsService,
@@ -29,8 +30,6 @@ export class HomepageComponent implements OnInit {
   }
 
   private fetchHeadlinesDirect() {
-
-    const directUrl = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=0cd11b45ffd949eaa03bbdbd23c5f95f';
     this.topNewsService.fetchTopNews().subscribe(res => {
       const data = Object.values(res);
       const articles = data[2];
@@ -44,6 +43,7 @@ export class HomepageComponent implements OnInit {
       });
       this.fetchedArticlesAvgSent = sentiSum / articlesWithSent.length;
       this.fetchedArticles = articlesWithSent;
+      this.imageStories = this.fetchedArticles.filter(article => article.urlToImage.length > 0);
     });
   }
 
