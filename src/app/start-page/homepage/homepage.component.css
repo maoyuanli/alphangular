@@ -1,20 +1,10 @@
-.jumbotron {
-  background-image: url("/assets/background.PNG");
-  background-size: cover;
-  display: flex;
-  justify-content: space-around;
-}
-
-#linkedin_mugshot {
-  border-radius: 50%;
-}
-
-.jumbotron-heading {
-  color: honeydew;
-}
-
-#sub_heading {
-  color: honeydew;
-  font-family: "Comic Sans MS";
-  font-size: x-large;
+.ui.pointing.below{
+  margin: 0 auto !important;
+  top: auto !important;
+  left: auto !important;
+  transform-origin: center !important;
+  transition: all ease .5s;
+  height: calc(100% - 50px) !important;
+  width: calc(100% - 50px) !important;
+  justify-self: center;
 }

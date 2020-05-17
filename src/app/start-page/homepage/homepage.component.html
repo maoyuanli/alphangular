@@ -1,7 +1,9 @@
 <app-carousel [imageStories]="imageStories"></app-carousel>
-
-<div>
-  <app-stockindex [avgSentScore]="fetchedArticlesAvgSent"></app-stockindex>
+<div class="ui hidden divider"></div>
+<div class = "ui segment center aligned">
+  <div class="ui pointing below black basic label">
+    <app-stockindex [avgSentScore]="fetchedArticlesAvgSent"></app-stockindex>
+  </div>
   <div class="ui horizontal divider">
     VS
   </div>

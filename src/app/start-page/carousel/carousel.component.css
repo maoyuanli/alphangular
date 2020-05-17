@@ -9,5 +9,7 @@ a {
   color: white;
   font-weight: bold;
   text-align: center;
+  margin: 50px !important;
+  display: flex;
 }
 
