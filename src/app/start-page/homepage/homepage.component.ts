@@ -43,7 +43,7 @@ export class HomepageComponent implements OnInit {
       });
       this.fetchedArticlesAvgSent = sentiSum / articlesWithSent.length;
       this.fetchedArticles = articlesWithSent;
-      this.imageStories = this.fetchedArticles.filter(article => article.urlToImage.length > 0);
+      this.imageStories = articles.filter(article => article.urlToImage !== null);
     });
   }
 
