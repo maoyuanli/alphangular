@@ -6,6 +6,7 @@
       construed as investment advice.
     </div>
   </footer>
+  <div class="ui hidden divider"></div>
   <nav>
     <ul class="pagination">
       <li class="page-item" [ngClass]="{disabled: currentPage===1}">
@@ -25,12 +26,9 @@
 
 <div class="ui info message" *ngIf="showDailyTips">
   <i class="close icon" (click)="clearDailyTip()"></i>
-  <div class="header">
-    Daily Tips
+  <div class="content">
+    Daily Tips : Hover on the chart line to see daily price level.
   </div>
-  <ul class="list">
-    <li>Hover on the chart line to see daily price level.</li>
-  </ul>
 </div>
 
 <div class="row justify-content-center">

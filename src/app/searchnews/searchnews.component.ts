@@ -46,6 +46,7 @@ export class SearchnewsComponent implements OnInit {
     this.keyword = '';
     this.newsArticles = [];
     this.wikiArticles = [];
+    this.showWiki = false;
     event.preventDefault();
   }
 

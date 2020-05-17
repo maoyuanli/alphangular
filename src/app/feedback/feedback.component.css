@@ -20,3 +20,11 @@
   align-items: center;
   justify-items: center;
 }
+
+.view.overlay {
+  border-radius: 50%;
+}
+
+h4 {
+  color: #f4f4f4;
+}

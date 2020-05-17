@@ -1,35 +1,68 @@
 <div class="container">
-  <div class="ui horizontal divider">
-    Leave a Message to Mao
-  </div>
   <form>
-    <div class="form-group">
-      <label>Name</label>
-      <input (change)="onChangeName($event.target.value)" [value]="name"
-             type="text" class="form-control" name="name"
-             placeholder="John Snow"/>
-    </div>
-    <div class="form-group">
-      <label htmlFor="exampleFormControlTextarea1">Email</label>
-      <input (change)="onChangeEmail($event.target.value)" [value]="email"
-             type="email" class="form-control" name="email"
-             placeholder="john.snow@winterfall.got"/>
-    </div>
-    <div class="form-group">
-      <label htmlFor="exampleFormControlTextarea1">Phone</label>
-      <input (change)="onChangePhone($event.target.value)" [value]="phone"
-             type="text" class="form-control" name="phone"
-             placeholder="1234567890"/>
-    </div>
-    <div class="form-group">
-      <label htmlFor="exampleFormControlTextarea1">Comment</label>
-      <textarea (change)="onChangeComment($event.target.value)" [value]="comment"
-                rows="3" type="text" class="form-control" name="comment"
-                placeholder="What did Father use to say? Everything before the word ‘but’ is horse-shit."></textarea>
-    </div>
-    <button class="btn btn-success"
-            (click)="onSubmitHandler($event)">Submit
-    </button>
+    <section class="mb-4">
+      <h2 class="h1-responsive font-weight-bold text-center my-4">Leave a Message to Mao</h2>
+      <div class="row">
+        <div class="col-md-9 mb-md-0 mb-5">
+          <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="md-form mb-0">
+                  <input (change)="onChangeName($event.target.value)" [value]="name"
+                         type="text" class="form-control" name="name"
+                         placeholder="Name:      John Snow"/>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="md-form mb-0">
+                  <input (change)="onChangeEmail($event.target.value)" [value]="email"
+                         type="email" class="form-control" name="email"
+                         placeholder="Email:      john.snow@winterfall.got"/>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="md-form mb-0">
+                  <input (change)="onChangePhone($event.target.value)" [value]="phone"
+                         type="text" class="form-control" name="phone"
+                         placeholder="Phone:      1234567890"/>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="md-form">
+                <textarea (change)="onChangeComment($event.target.value)" [value]="comment"
+                          rows="3" type="text" class="form-control" name="comment"
+                          placeholder="  Message:   What did Father use to say? Everything before the word ‘but’ is horse-shit."></textarea>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <div class="text-center text-md-left">
+            <button class="btn btn-success"
+                    (click)="onSubmitHandler($event)">Submit
+            </button>
+          </div>
+          <div class="status"></div>
+        </div>
+
+        <div class="col-md-3 text-center">
+          <div class="view overlay">
+            <img class="ui fluid image" src="assets/linkedin_mugshot.jpg" alt="First slide">
+            <div class="mask flex-center rgba-blue-slight">
+              <h1><a href="https://www.linkedin.com/in/mao-yuan-li-ba6364120/"><i class="linkedin icon"></i>LinkedIn</a>
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </form>
 
   <div class="ui dimmer visible active" *ngIf="submitResult">
@@ -62,4 +95,5 @@
       </div>
     </div>
   </div>
+
 </div>
