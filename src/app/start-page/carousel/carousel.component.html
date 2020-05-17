@@ -1,27 +1,27 @@
 <div class="ui segment" *ngIf="imageStories[0]">
   <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
     <mdb-carousel-item>
-      <div class="view w-100">
+      <div class="view overlay">
         <img class="ui fluid image" src="{{imageStories[0].urlToImage}}" alt="First slide">
-      </div>
-      <div class="carousel-caption">
-        <h3 class="h3-responsive"><a href="{{imageStories[0].url}}">{{imageStories[0].title}}</a></h3>
-      </div>
-    </mdb-carousel-item>
-    <mdb-carousel-item>
-      <div class="view w-100">
-        <img class="ui fluid image" src="{{imageStories[1].urlToImage}}" alt="Second slide">
-      </div>
-      <div class="carousel-caption">
-        <h3 class="h3-responsive"><a href="{{imageStories[1].url}}">{{imageStories[1].title}}</a></h3>
+        <div class="mask flex-center rgba-blue-light">
+          <h4 class="white-text"><a href="{{imageStories[0].url}}">{{imageStories[0].title}}</a></h4>
+        </div>
       </div>
     </mdb-carousel-item>
     <mdb-carousel-item>
-      <div class="view w-100">
-        <img class="ui fluid image" src="{{imageStories[2].urlToImage}}" alt="Third slide">
+      <div class="view overlay">
+        <img class="ui fluid image" src="{{imageStories[1].urlToImage}}" alt="First slide">
+        <div class="mask flex-center rgba-blue-light">
+          <h4 class="white-text"><a href="{{imageStories[1].url}}">{{imageStories[1].title}}</a></h4>
+        </div>
       </div>
-      <div class="carousel-caption">
-        <h3 class="h3-responsive"><a href="{{imageStories[2].url}}">{{imageStories[2].title}}</a></h3>
+    </mdb-carousel-item>
+    <mdb-carousel-item>
+      <div class="view overlay">
+        <img class="ui fluid image" src="{{imageStories[2].urlToImage}}" alt="First slide">
+        <div class="mask flex-center rgba-blue-light">
+          <h4 class="white-text"><a href="{{imageStories[2].url}}">{{imageStories[2].title}}</a></h4>
+        </div>
       </div>
     </mdb-carousel-item>
   </mdb-carousel>
