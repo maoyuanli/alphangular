@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {UtilsService} from '../../services/utils-service/utils.service';
+import {TopNewsService} from '../../services/top-news-service/top-news.service';
 
 @Component({
   selector: 'app-homepage',
@@ -13,7 +14,9 @@ export class HomepageComponent implements OnInit {
   fetchedArticles = [];
   fetchedArticlesAvgSent = 0;
 
-  constructor(private http: HttpClient, private utilsService: UtilsService) {
+  constructor(private http: HttpClient,
+              private utilsService: UtilsService,
+              private topNewsService: TopNewsService) {
   }
 
   ngOnInit(): void {
@@ -28,8 +31,7 @@ export class HomepageComponent implements OnInit {
   private fetchHeadlinesDirect() {
 
     const directUrl = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=0cd11b45ffd949eaa03bbdbd23c5f95f';
-    this.http
-      .get(directUrl).subscribe(res => {
+    this.topNewsService.fetchTopNews().subscribe(res => {
       const data = Object.values(res);
       const articles = data[2];
       const articlesWithSent = [];

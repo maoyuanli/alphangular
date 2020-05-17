@@ -1,4 +1,4 @@
-.ui.info.message{
+.ui.info.message {
   display: flex;
   justify-items: center;
   justify-content: center;
@@ -12,7 +12,7 @@
   width: calc(100% - 10px) !important;
 }
 
-.ui.segment{
+.ui.segment {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,12 +21,12 @@
   min-height: 50vh;
 }
 
-.ui.styled.accordion{
+.ui.styled.accordion {
   width: calc(100% - 10px) !important;
   font-size: medium;
   text-align: justify;
 }
 
-.ui.left.icon.input{
+.ui.left.icon.input {
   width: 280px !important;
 }

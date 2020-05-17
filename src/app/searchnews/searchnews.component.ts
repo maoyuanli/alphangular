@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {UtilsService} from '../services/utils-service/utils.service';
 import {SearchWikiService} from '../services/search-wiki-service/search-wiki.service';
+import {SearchNewsApiService} from '../services/search-newsapi-service/search-news-api.service';
 
 @Component({
   selector: 'app-searchnews',
@@ -18,7 +19,8 @@ export class SearchnewsComponent implements OnInit {
 
   constructor(private http: HttpClient,
               private utilsService: UtilsService,
-              private searchWikiService: SearchWikiService) {
+              private searchWikiService: SearchWikiService,
+              private searchNewsApiService: SearchNewsApiService) {
   }
 
   ngOnInit(): void {
@@ -29,8 +31,7 @@ export class SearchnewsComponent implements OnInit {
       this.wikiArticles = res.query.search;
     });
 
-    const searchURI = `https://newsapi.org/v2/everything?q=${encodeURI(this.keyword)}&apiKey=0cd11b45ffd949eaa03bbdbd23c5f95f`;
-    this.http.get(searchURI).subscribe(res => {
+    this.searchNewsApiService.search(this.keyword).subscribe(res => {
       const data = Object.values(res);
       const articles = data[2];
       const articlesWithSent = [];

@@ -4,7 +4,7 @@
   <form class="ui form">
     <div class="fields justify-content-center">
       <div class=" inline field">
-        <input (input)="keyword=$event.target.value" class="ui left icon input" type="text" placeholder="Search"
+        <input (input)="keyword=$event.target.value" class="ui left icon input" type="text" placeholder="topic keyword"
                [value]="keyword">
       </div>
       <div class="field">
@@ -19,10 +19,10 @@
         <div id="wikiButton" class="ui labeled button right aligned" tabindex="0" (click)="showWiki=!showWiki"
              *ngIf="wikiArticles.length>0">
           <div class="ui basic orange button">
-            <i class="wikipedia w icon"></i> More on Wiki
+            <i class="wikipedia w icon"></i> More
           </div>
           <a class="ui basic left pointing orange label right floated">
-            {{wikiArticles.length}} results
+            {{wikiArticles.length}} wiki results
           </a>
         </div>
       </div>

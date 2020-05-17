@@ -1,13 +1,13 @@
 import {TestBed} from '@angular/core/testing';
 
-import {SearchWikiService} from './search-wiki.service';
+import {TopNewsService} from './top-news.service';
 
-describe('SearchWikiService', () => {
-  let service: SearchWikiService;
+describe('TopNewsService', () => {
+  let service: TopNewsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(SearchWikiService);
+    service = TestBed.inject(TopNewsService);
   });
 
   it('should be created', () => {
