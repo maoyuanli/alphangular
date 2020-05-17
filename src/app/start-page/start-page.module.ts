@@ -5,7 +5,7 @@ import {StartPageRoutingModule} from './start-page-routing.module';
 import {HomepageComponent} from './homepage/homepage.component';
 import {StockindexComponent} from './stockindex/stockindex.component';
 import {SharedModule} from '../shared/shared.module';
-import { CarouselComponent } from './carousel/carousel.component';
+import {CarouselComponent} from './carousel/carousel.component';
 import {CarouselModule, WavesModule} from 'angular-bootstrap-md';
 
 @NgModule({
