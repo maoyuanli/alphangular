@@ -9,9 +9,11 @@ export class CarouselComponent implements OnInit {
 
   @Input() imageStories = [];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
+
 
 }
