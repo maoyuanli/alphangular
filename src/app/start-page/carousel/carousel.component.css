@@ -4,3 +4,9 @@
   object-fit: cover;
   object-position: 50% 10%;
 }
+
+a{
+  color: white;
+  font-weight: bold;
+}
+

@@ -1,6 +1,7 @@
 .table {
   color: orange;
   font-size: medium;
+  text-align: left;
 }
 
 .form-control {
@@ -13,4 +14,8 @@
 
 th {
   text-align: center;
+}
+
+#headlineWithLink{
+  color: orange;
 }
