@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {map, pluck} from 'rxjs/operators';
-import {NewsApiResponse, UtilsService} from '../utils-service/utils.service';
+import {UtilsService} from '../utils-service/utils.service';
 
 
 @Injectable({
@@ -18,13 +17,6 @@ export class SearchNewsApiService {
   }
 
   search(keyword: string) {
-    return this.http.get<NewsApiResponse>(this.prefix + keyword + this.apiKey)
-      .pipe(
-        pluck('articles'),
-        map(
-          articles => articles.map(article =>
-            ({...article, sentiment: this.utilsService.getSentiment(article.title)}))
-        )
-      );
+    return this.utilsService.getNewsArticlesWithSentScore(this.prefix + keyword + this.apiKey);
   }
 }

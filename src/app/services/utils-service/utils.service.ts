@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
 import * as AFINN from 'sentiment';
+import {map, pluck} from 'rxjs/operators';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,7 @@ export class UtilsService {
   private backendUrlPrefix = this.prodUrlPrefix;
   sentiment = new AFINN();
 
-  constructor() {
+  constructor(private http: HttpClient,) {
   }
 
   getFullUrl(endpoint: string) {
@@ -20,6 +22,17 @@ export class UtilsService {
 
   getSentiment(str: string) {
     return this.sentiment.analyze(str).score;
+  }
+
+  getNewsArticlesWithSentScore(url: string) {
+    return this.http.get<NewsApiResponse>(url)
+      .pipe(
+        pluck('articles'),
+        map(
+          articles => articles.map(article =>
+            ({...article, sentiment: this.getSentiment(article.title)}))
+        )
+      );
   }
 }
 

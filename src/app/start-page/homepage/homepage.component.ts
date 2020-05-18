@@ -30,20 +30,14 @@ export class HomepageComponent implements OnInit {
   }
 
   private fetchHeadlinesDirect() {
-    this.topNewsService.fetchTopNews().subscribe(res => {
-      const data = Object.values(res);
-      const articles = data[2];
-      const articlesWithSent = [];
-      articles.forEach(article => {
-        articlesWithSent.push({...article, sentiment: this.utilsService.getSentiment(article.title)});
-      });
+    this.topNewsService.fetchTopNews().subscribe(articlesWithSent => {
       let sentiSum = 0;
       articlesWithSent.forEach(a => {
         sentiSum += a.sentiment;
       });
       this.fetchedArticlesAvgSent = sentiSum / articlesWithSent.length;
       this.fetchedArticles = articlesWithSent;
-      this.imageStories = articles.filter(article => article.urlToImage !== null);
+      this.imageStories = articlesWithSent.filter(article => article.urlToImage !== null);
     });
   }
 

@@ -1,6 +1,10 @@
+.ui.inverted.menu {
+  background: #034f84;
+}
+
 #loginBtn {
   width: 160px;
-  color: darkgreen;
+  color: navy;
 }
 
 #stockTickerName {
