@@ -1,21 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map, pluck} from 'rxjs/operators';
-import {UtilsService} from '../utils-service/utils.service';
+import {NewsApiResponse, UtilsService} from '../utils-service/utils.service';
 
-interface NewsApiResponse {
-  articles: {
-    source: {
-      name: string
-    };
-    title: string;
-    description: string;
-    url: string;
-    urlToImage: string;
-    publishedAt: string;
-    content: string;
-  }[];
-}
 
 @Injectable({
   providedIn: 'root'
@@ -27,20 +14,17 @@ export class SearchNewsApiService {
 
   constructor(private http: HttpClient,
               private utilsService: UtilsService,
-              ) {
+  ) {
   }
 
   search(keyword: string) {
     return this.http.get<NewsApiResponse>(this.prefix + keyword + this.apiKey)
       .pipe(
         pluck('articles'),
-        map(articles => {
-          const articlesWithSent = [];
-          articles.forEach(article => {
-            articlesWithSent.push({...article, sentiment: this.utilsService.getSentiment(article.title)});
-          });
-          return articlesWithSent;
-        })
+        map(
+          articles => articles.map(article =>
+            ({...article, sentiment: this.utilsService.getSentiment(article.title)}))
+        )
       );
   }
 }
