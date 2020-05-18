@@ -13,7 +13,8 @@
   width: calc(100% - 40px) !important;
 }
 
-.spinner{
-  width: 10rem;
-  height: 10rem;
+.spinner-grow {
+  display: inline-block;
+  width: 5rem;
+  height: 5rem;
 }
