@@ -27,13 +27,11 @@ export class SearchnewsComponent implements OnInit {
   }
 
   onClickSearchDirect() {
-    this.searchWikiService.search(this.keyword).subscribe((res: any) => {
-      this.wikiArticles = res.query.search;
+    this.searchWikiService.search(this.keyword).subscribe((articles) => {
+      this.wikiArticles = articles;
     });
 
-    this.searchNewsApiService.search(this.keyword).subscribe(res => {
-      const data = Object.values(res);
-      const articles = data[2];
+    this.searchNewsApiService.search(this.keyword).subscribe(articles => {
       const articlesWithSent = [];
       articles.forEach(article => {
         articlesWithSent.push({...article, sentiment: this.utilsService.getSentiment(article.title)});

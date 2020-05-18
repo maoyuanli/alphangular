@@ -1,5 +1,20 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {pluck} from 'rxjs/operators';
+
+interface NewsApiResponse {
+  articles: {
+    source: {
+      name: string
+    };
+    title: string;
+    description: string;
+    url: string;
+    urlToImage: string;
+    publishedAt: string;
+    content: string;
+  }[];
+}
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +28,9 @@ export class SearchNewsApiService {
   }
 
   search(keyword: string) {
-    return this.http.get(this.prefix + keyword + this.apiKey);
+    return this.http.get<NewsApiResponse>(this.prefix + keyword + this.apiKey)
+      .pipe(
+        pluck('articles')
+      );
   }
 }

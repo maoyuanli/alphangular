@@ -1,5 +1,15 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {pluck} from 'rxjs/operators';
+
+interface WikiResponse {
+  query: {
+    search: {
+      title: string;
+      snippet: string;
+    }[]
+  };
+}
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +21,7 @@ export class SearchWikiService {
   }
 
   search(keyword: string) {
-    return this.http.get(this.urlPrefix, {
+    return this.http.get<WikiResponse>(this.urlPrefix, {
       params: {
         action: 'query',
         format: 'json',
@@ -20,6 +30,8 @@ export class SearchWikiService {
         srsearch: keyword,
         origin: '*'
       }
-    });
+    }).pipe(
+      pluck('query', 'search')
+    );
   }
 }
