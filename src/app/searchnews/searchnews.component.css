@@ -23,8 +23,8 @@
   /*background-color: #d9dfe5;*/
   -webkit-animation: bummer 2s;
   animation: bummer 2s;
-  -webkit-transform: scale(1.1,1.1);
-  transform: scale(1.1,1.1);
+  -webkit-transform: scale(1.1, 1.1);
+  transform: scale(1.1, 1.1);
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
@@ -56,12 +56,12 @@
 
 @-webkit-keyframes bummer {
   100% {
-    -webkit-transform: scale(1,1);
+    -webkit-transform: scale(1, 1);
   }
 }
 
 @keyframes bummer {
   100% {
-    transform: scale(1,1);
+    transform: scale(1, 1);
   }
 }

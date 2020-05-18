@@ -9,8 +9,4 @@ describe('SearchNewsApiService', () => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(SearchNewsApiService);
   });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
 });

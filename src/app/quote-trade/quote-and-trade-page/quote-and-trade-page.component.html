@@ -1,51 +1,42 @@
 <div class="ui aligned center aligned grid">
-  <div *ngIf="!alreadyLogin()" class="container">
-    <div class="flex-grow-1">
-      <div class="card card-signin my-5">
-        <div class="card-body">
-          <div class="column">
-            <h2 id="loginTextHeader" class="ui violet image header">
-              <i class="user icon"></i>
-              <div class="content">
-                Log-in to Trade
-              </div>
-            </h2>
-            <form #loginForm="ngForm" class="ui large form" (ngSubmit)="login()">
-              <div class="fields justify-content-center">
-                <div class="field">
-                  <div class="ui left icon input">
-                    <i class="user icon"></i>
-                    <input type="text" name="username" placeholder="user@abc.com" #username="ngModel"
-                           autocomplete="off" [(ngModel)]="model.username">
-                  </div>
-                </div>
-                <div class="field">
-                  <div class="ui left icon input">
-                    <i class="lock icon"></i>
-                    <input type="password" name="password" placeholder="password" #password="ngModel"
-                           [(ngModel)]="model.password">
-                  </div>
-                </div>
-                <button id="loginBtn" class="ui fluid small violet submit button" type="submit">Login</button>
-              </div>
+  <div *ngIf="!alreadyLogin()" class="container justify-content-center">
+    <div class="ui teal inverted menu justify-content-center">
+      <a class="item">
+        <h5>
+          <i class="privacy icon"></i>
+          Log-in to Trade
+        </h5>
+      </a>
+      <a class="item">
+        <div class="ui left icon input">
+          <i class="user icon"></i>
+          <input type="text" name="username" placeholder="user@abc.com" #username="ngModel"
+                 autocomplete="off" [(ngModel)]="model.username">
+        </div>
+      </a>
+      <a class="item">
+        <div class="ui left icon input">
+          <i class="lock icon"></i>
+          <input type="password" name="password" placeholder="password" #password="ngModel"
+                 [(ngModel)]="model.password">
+        </div>
+      </a>
+      <a class="item">
+        <button id="loginBtn" class="ui fluid small submit button" type="submit" (click)="login()">Login</button>
+      </a>
+    </div>
 
-              <div class="ui error message"></div>
-
-            </form>
-            <div class="ui comments" *ngIf="failedLogin">
-              <h5 class="ui dividing header">Login Failed Please Use the Complimentary Account as Below</h5>
-              <div class="comment">
-                <div class="content">
-                  <div class="text">username: <i class="user icon"></i>user@abc.com</div>
-                  <div class="text">password: <i class="key icon"></i>password</div>
-                </div>
-              </div>
-            </div>
-
-          </div>
+    <div class="ui comment justify-content-center" *ngIf="failedLogin">
+      <h5 class="ui dividing header">Login Failed Please Use the Complimentary Account as Below
+      </h5>
+      <div class="comment">
+        <div class="content">
+          <div class="text">username: <i class="user icon"></i>user@abc.com</div>
+          <div class="text">password: <i class="key icon"></i>password</div>
         </div>
       </div>
     </div>
+
   </div>
 
   <div class="ui dimmer visible active" *ngIf="alreadyLogin()">

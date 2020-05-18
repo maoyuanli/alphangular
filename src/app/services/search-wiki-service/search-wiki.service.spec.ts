@@ -9,8 +9,4 @@ describe('SearchWikiService', () => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(SearchWikiService);
   });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
 });
