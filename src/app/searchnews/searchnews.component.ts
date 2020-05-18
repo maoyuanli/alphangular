@@ -32,11 +32,7 @@ export class SearchnewsComponent implements OnInit {
     });
 
     this.searchNewsApiService.search(this.keyword).subscribe(articles => {
-      const articlesWithSent = [];
-      articles.forEach(article => {
-        articlesWithSent.push({...article, sentiment: this.utilsService.getSentiment(article.title)});
-      });
-      this.newsArticles = articlesWithSent;
+      this.newsArticles = articles;
     });
   }
 
