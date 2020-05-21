@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {map} from 'rxjs/operators';
+import {pluck} from 'rxjs/operators';
 import {UtilsService} from '../../services/utils-service/utils.service';
 
 @Component({
@@ -71,19 +71,10 @@ export class TradeorderComponent implements OnInit {
   }
 
   fetchOrders() {
-    this.http.get(this.utilsService.getFullUrl('getorder'), this.httpOptions).pipe(map(res => {
-      const orderArray = [];
-      for (const key in res) {
-        if (res.hasOwnProperty(key)) {
-          orderArray.push({...res[key]});
-        }
-      }
-      return orderArray;
-    }))
+    this.http.get<Orders>(this.utilsService.getFullUrl('getorder'), this.httpOptions)
+      .pipe(pluck('orders'))
       .subscribe(orders => {
-          const rawOrders = Object.values(orders[0]);
-          this.existingOrder = rawOrders.sort((a, b) => {
-            // @ts-ignore
+          this.existingOrder = orders.sort((a, b) => {
             return (a.id > b.id) ? -1 : 1;
           });
         }
@@ -93,4 +84,14 @@ export class TradeorderComponent implements OnInit {
   logout() {
     localStorage.removeItem('token');
   }
+}
+
+export interface Orders {
+  orders: {
+    id: number;
+    ticker: string;
+    orderType: string;
+    orderVolumn: string;
+    createdDate: string;
+  }[];
 }
