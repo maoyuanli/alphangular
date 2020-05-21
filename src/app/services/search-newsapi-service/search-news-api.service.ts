@@ -8,15 +8,14 @@ import {UtilsService} from '../utils-service/utils.service';
 })
 export class SearchNewsApiService {
 
-  prefix = 'https://newsapi.org/v2/everything?q=';
-  apiKey = '&apiKey=0cd11b45ffd949eaa03bbdbd23c5f95f';
-
   constructor(private http: HttpClient,
               private utilsService: UtilsService,
   ) {
   }
 
   search(keyword: string) {
-    return this.utilsService.getNewsArticlesWithSentScore(this.prefix + keyword + this.apiKey);
+    const endpoint = this.utilsService.getFullUrl('searchnews');
+    const searchUrl = endpoint.slice(0, endpoint.length - 1) + `?q=` + keyword;
+    return this.utilsService.getNewsArticlesWithSentScore(searchUrl);
   }
 }

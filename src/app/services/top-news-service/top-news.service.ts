@@ -7,13 +7,12 @@ import {UtilsService} from '../utils-service/utils.service';
 })
 export class TopNewsService {
 
-  directUrl = 'https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=0cd11b45ffd949eaa03bbdbd23c5f95f';
 
   constructor(private http: HttpClient,
               private utilsService: UtilsService) {
   }
 
   fetchTopNews() {
-    return this.utilsService.getNewsArticlesWithSentScore(this.directUrl);
+    return this.utilsService.getNewsArticlesWithSentScore(this.utilsService.getFullUrl('topnews'));
   }
 }
