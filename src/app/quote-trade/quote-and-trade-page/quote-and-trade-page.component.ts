@@ -15,10 +15,10 @@ export class QuoteAndTradePageComponent implements OnInit {
   };
 
   failedLogin = false;
-  registerOn = false;
+  registerOn = true;
 
   registerForm = new FormGroup({
-    fullname: new FormControl('', [Validators.required]),
+    fullname: new FormControl('', [Validators.required, Validators.minLength(3)]),
     email: new FormControl('', [Validators.email, Validators.required])
   });
 

@@ -27,3 +27,13 @@
   height: calc(100% - 30px) !important;
   width: calc(100% - 30px) !important;
 }
+
+#regForm{
+  margin: 0 auto !important;
+  top: auto !important;
+  left: auto !important;
+  transform-origin: center !important;
+  transition: all ease .5s;
+  height: calc(60% - 50px) !important;
+  width: calc(70% - 50px) !important;
+}

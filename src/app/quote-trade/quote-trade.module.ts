@@ -9,6 +9,7 @@ import {QuoteAndTradePageComponent} from './quote-and-trade-page/quote-and-trade
 import {GoogleChartsModule} from 'angular-google-charts';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from '../services/auth-service/auth.service';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   declarations: [QuotepageComponent, QuotecardComponent, TradeorderComponent, QuoteAndTradePageComponent],
@@ -17,7 +18,8 @@ import {AuthService} from '../services/auth-service/auth.service';
     QuoteTradeRoutingModule,
     GoogleChartsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   exports: [
     QuotepageComponent,
