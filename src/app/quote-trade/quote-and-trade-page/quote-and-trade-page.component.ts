@@ -17,7 +17,7 @@ export class QuoteAndTradePageComponent implements OnInit {
   };
 
   failedLogin = false;
-  registerOn = true;
+  registerOn = false;
   registerSuccess = false;
   registeredFullname = '';
 

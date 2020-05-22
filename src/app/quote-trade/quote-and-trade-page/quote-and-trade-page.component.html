@@ -72,7 +72,7 @@
                            label="Password" type="password"></app-valid-input>
           <div class="ui hidden divider"></div>
 
-          <button class="ui negative left floated labeled icon button" (click)="registerCancel()"><i class="checkmark icon"></i>Cancel</button>
+          <button class="ui negative left floated labeled icon button" (click)="registerCancel()"><i class="cancel icon"></i>Cancel</button>
           <button [disabled]="registerForm.invalid" class="ui positive right floated labeled icon button" type="submit"><i class="checkmark icon"></i>Submit</button>
         </form>
       </div>
@@ -84,7 +84,7 @@
     <div id="regSuccess" class="ui modal visible active">
       <i class="close icon"></i>
       <div class="header">
-        Thank you for your registration
+        Thank you for signing up
       </div>
       <div class="content">
         <div class="ui comments">
@@ -108,5 +108,28 @@
       </div>
     </div>
   </div>
+
+  <div class="ui dimmer visible active" *ngIf="registerFail">
+    <div id="regFailed" class="ui modal visible active">
+      <i class="close icon"></i>
+      <div class="header">
+        Opps, something is wrong ...
+      </div>
+      <div class="content">
+        <div class="ui comments">
+          <div class="comment">
+              <div class="text">
+                Registration Failed, Please Try Again
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="actions">
+        <button class="ui positive labeled icon button" (click)="registerFail=false"><i class="checkmark icon"></i>Close
+        </button>
+      </div>
+    </div>
+  </div>
+
 </div>
 
