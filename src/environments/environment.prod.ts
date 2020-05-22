@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  UrlPrefix: 'https://alphaspring.herokuapp.com/api/'
 };

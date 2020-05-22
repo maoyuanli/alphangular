@@ -2,15 +2,16 @@ import {Injectable} from '@angular/core';
 import * as AFINN from 'sentiment';
 import {map, pluck} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilsService {
 
-  private devUrlPrefix = 'http://localhost:5000/api/';
-  private prodUrlPrefix = 'https://alphaspring.herokuapp.com/api/';
-  private backendUrlPrefix = this.devUrlPrefix;
+  // private devUrlPrefix = 'http://localhost:5000/api/';
+  // private prodUrlPrefix = 'https://alphaspring.herokuapp.com/api/';
+  private backendUrlPrefix = environment.UrlPrefix;
   sentiment = new AFINN();
 
   constructor(private http: HttpClient) {
