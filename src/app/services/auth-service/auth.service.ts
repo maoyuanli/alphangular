@@ -16,7 +16,6 @@ export class AuthService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        // 'Authorization': 'my-auth-token'
       })
     };
     return this.http.post(this.utilsService.getFullUrl('users/login'), model, httpOptions)

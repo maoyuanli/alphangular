@@ -15,7 +15,7 @@ export class SearchNewsApiService {
 
   search(keyword: string) {
     const endpoint = this.utilsService.getFullUrl('searchnews');
-    const searchUrl = endpoint.slice(0, endpoint.length - 1) + `?q=` + keyword;
+    const searchUrl = endpoint.slice(0, endpoint.length - 1) + `?q=${keyword}`;
     return this.utilsService.getNewsArticlesWithSentScore(searchUrl);
   }
 }

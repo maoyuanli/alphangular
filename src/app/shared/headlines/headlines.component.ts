@@ -23,14 +23,13 @@ export class HeadlinesComponent implements OnInit {
   }
 
   filterZeroSentimentHandler() {
-    const nonZero = this.articles.filter((article) => {
+    return this.articles.filter((article) => {
       if (article.sentiment !== 0) {
         return article;
       } else {
         return null;
       }
     });
-    return nonZero;
   }
 
   filterTitleHandler() {
@@ -44,8 +43,8 @@ export class HeadlinesComponent implements OnInit {
 
   avgSentScore(articleJsonList) {
     let sumScore = 0;
-    for (let i = 0; i < articleJsonList.length; i++) {
-      sumScore += articleJsonList[i].sentiment;
+    for (const articcleJson of articleJsonList) {
+      sumScore += articcleJson.sentiment;
     }
 
     const avgScore = (sumScore / articleJsonList.length).toFixed(4);

@@ -9,8 +9,6 @@ import {environment} from '../../../environments/environment';
 })
 export class UtilsService {
 
-  // private devUrlPrefix = 'http://localhost:5000/api/';
-  // private prodUrlPrefix = 'https://alphaspring.herokuapp.com/api/';
   private backendUrlPrefix = environment.UrlPrefix;
   sentiment = new AFINN();
 
