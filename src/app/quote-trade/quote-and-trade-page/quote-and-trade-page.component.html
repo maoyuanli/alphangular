@@ -24,6 +24,11 @@
       <a class="item">
         <button id="loginBtn" class="ui fluid small submit button" type="submit" (click)="login()">Login</button>
       </a>
+
+      <a class="item">
+        <button id="registerBtn" class="ui fluid small submit button" type="submit" (click)="registerOn=true">Register
+        </button>
+      </a>
     </div>
 
     <div class="ui comment justify-content-center" *ngIf="failedLogin">
@@ -46,5 +51,35 @@
       </div>
     </div>
   </div>
+
   <app-quotepage></app-quotepage>
+
+  <div class="ui dimmer visible active" *ngIf="registerOn">
+    <div class="ui modal visible active">
+      <form class="text-center border border-light p-5" [formGroup]="registerForm">
+        <p class="h4 mb-4">Sign up</p>
+
+        <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Full Name"
+               formControlName="fullname">
+        <div class="ui hidden divider"></div>
+        <input type="email" id="defaultRegisterFormEmail" class="form-control" placeholder="E-mail"
+               formControlName="email">
+        <div class="ui hidden divider"></div>
+        <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password"
+               aria-describedby="defaultRegisterFormPasswordHelpBlock">
+        <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+          At least 8 characters and 1 digit
+        </small>
+        <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number"
+               aria-describedby="defaultRegisterFormPhoneHelpBlock">
+        <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+          Optional - for two step authentication
+        </small>
+        <button class="btn btn-info my-4 btn-block" type="submit" (click)="registerOn=false">Sign in</button>
+      </form>
+      <div>Form Contents: {{registerForm.value | json}}</div>
+      <div>Form Contents: {{registerForm.valid}}</div>
+    </div>
+  </div>
 </div>
+

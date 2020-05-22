@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../services/auth-service/auth.service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-quote-and-trade-page',
@@ -14,6 +15,12 @@ export class QuoteAndTradePageComponent implements OnInit {
   };
 
   failedLogin = false;
+  registerOn = false;
+
+  registerForm = new FormGroup({
+    fullname: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.email, Validators.required])
+  });
 
   constructor(private authService: AuthService) {
   }

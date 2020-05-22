@@ -7,7 +7,7 @@ import {QuotecardComponent} from './quotecard/quotecard.component';
 import {TradeorderComponent} from './tradeorder/tradeorder.component';
 import {QuoteAndTradePageComponent} from './quote-and-trade-page/quote-and-trade-page.component';
 import {GoogleChartsModule} from 'angular-google-charts';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from '../services/auth-service/auth.service';
 
 @NgModule({
@@ -16,7 +16,8 @@ import {AuthService} from '../services/auth-service/auth.service';
     CommonModule,
     QuoteTradeRoutingModule,
     GoogleChartsModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     QuotepageComponent,
