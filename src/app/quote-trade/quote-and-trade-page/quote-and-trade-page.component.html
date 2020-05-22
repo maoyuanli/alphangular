@@ -26,7 +26,7 @@
       </a>
 
       <a class="item">
-        <button id="registerBtn" class="ui fluid small submit button" type="submit" (click)="registerOn=true">Register
+        <button id="registerBtn" class="ui blue labeled icon button" type="submit" (click)="registerOn=true"><i class="user icon"></i>Register
         </button>
       </a>
     </div>
@@ -69,7 +69,7 @@
                            label="Email" placeholder="arya.stark@got.ca" type="text"></app-valid-input>
           <div class="ui hidden divider"></div>
           <app-valid-input [control]="registerForm.controls.password"
-                           label="Password" type="password"></app-valid-input>
+                           label="Password" placeholder="minimun length: 6" type="password"></app-valid-input>
           <div class="ui hidden divider"></div>
 
           <button class="ui negative left floated labeled icon button" (click)="registerCancel()"><i
