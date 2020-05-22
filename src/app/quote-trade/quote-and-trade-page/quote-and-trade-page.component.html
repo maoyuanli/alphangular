@@ -9,7 +9,7 @@
       </a>
       <a class="item">
         <div class="ui left icon input">
-          <i class="user icon"></i>
+          <i class="envelope icon"></i>
           <input type="text" name="username" placeholder="user@abc.com" #username="ngModel"
                  autocomplete="off" [(ngModel)]="model.username">
         </div>
@@ -57,19 +57,54 @@
   <div class="ui dimmer visible active" *ngIf="registerOn">
     <div id="regForm" class="ui modal visible active">
       <div class="header">
-        Thank you for your feedback
+        Thank you for joining us
       </div>
       <div class="content">
-        <form class="ui form" [formGroup]="registerForm">
+        <form class="ui form" [formGroup]="registerForm" (ngSubmit)="registerSubmit()">
 
-          <app-valid-input [control]="registerForm.controls.fullname" label="Full Name"></app-valid-input>
+          <app-valid-input [control]="registerForm.controls.fullname"
+                           label="Full Name" placeholder="Arya Stark" type="text"></app-valid-input>
           <div class="ui hidden divider"></div>
-          <app-valid-input [control]="registerForm.controls.email" label="Email"></app-valid-input>
+          <app-valid-input [control]="registerForm.controls.email"
+                           label="Email" placeholder="arya.stark@got.ca" type="text"></app-valid-input>
+          <div class="ui hidden divider"></div>
+          <app-valid-input [control]="registerForm.controls.password"
+                           label="Password" type="password"></app-valid-input>
+          <div class="ui hidden divider"></div>
 
-          <button class="btn btn-info my-4 btn-block" type="submit" (click)="registerOn=false">Sign in</button>
+          <button class="ui negative left floated labeled icon button" (click)="registerCancel()"><i class="checkmark icon"></i>Cancel</button>
+          <button [disabled]="registerForm.invalid" class="ui positive right floated labeled icon button" type="submit"><i class="checkmark icon"></i>Submit</button>
         </form>
-        <div>Form Contents: {{registerForm.value | json}}</div>
-        <div>Form Contents: {{registerForm.valid}}</div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ui dimmer visible active" *ngIf="registerSuccess">
+    <div id="regSuccess" class="ui modal visible active">
+      <i class="close icon"></i>
+      <div class="header">
+        Thank you for your registration
+      </div>
+      <div class="content">
+        <div class="ui comments">
+          <div class="comment">
+            <a class="avatar">
+              <i class="user icon"></i>
+            </a>
+            <div class="content">
+              <div class="author">{{registeredFullname}}</div>
+              <div class="text">
+                please login with
+              </div>
+              <div class="text"><i class="envelope icon"></i>{{model.username}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="ui positive labeled icon button" (click)="registerSuccess=false"><i class="checkmark icon"></i>Close
+        </button>
       </div>
     </div>
   </div>

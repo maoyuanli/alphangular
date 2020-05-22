@@ -10,6 +10,8 @@ export class ValidInputComponent implements OnInit {
 
   @Input() control: FormControl;
   @Input() label: string;
+  @Input() placeholder: string;
+  @Input() type: string;
 
   constructor() { }
 
