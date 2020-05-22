@@ -28,7 +28,7 @@
   width: calc(100% - 30px) !important;
 }
 
-#regForm{
+#regForm {
   margin: 0 auto !important;
   top: auto !important;
   left: auto !important;
@@ -38,7 +38,7 @@
   width: calc(40% - 30px) !important;
 }
 
-#regSuccess, #regFailed{
+#regSuccess, #regFailed {
   margin: 0 auto !important;
   top: auto !important;
   left: auto !important;

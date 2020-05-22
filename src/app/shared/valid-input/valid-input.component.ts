@@ -13,7 +13,8 @@ export class ValidInputComponent implements OnInit {
   @Input() placeholder: string;
   @Input() type: string;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

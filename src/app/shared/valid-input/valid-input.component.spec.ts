@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ValidInputComponent } from './valid-input.component';
+import {ValidInputComponent} from './valid-input.component';
 
 describe('ValidInputComponent', () => {
   let component: ValidInputComponent;
@@ -8,18 +8,14 @@ describe('ValidInputComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ValidInputComponent ]
+      declarations: [ValidInputComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ValidInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });

@@ -19,6 +19,8 @@ export class QuoteAndTradePageComponent implements OnInit {
   failedLogin = false;
   registerOn = false;
   registerSuccess = false;
+  registerFail = false;
+  registerFailMsg = '';
   registeredFullname = '';
 
   registerForm = new FormGroup({
@@ -65,15 +67,19 @@ export class QuoteAndTradePageComponent implements OnInit {
     this.http.post<RegisterSuccessResponse>(this.utilsService.getFullUrl('users/register'),
       regInfo, httpOptions)
       .subscribe(res => {
-        if (res.password) {
-          this.registerSuccess = true;
-        }
-        this.model.username = res.username;
-        this.model.password = regInfo.password;
-        this.registeredFullname = regInfo.fullName;
+          if (res.password) {
+            this.registerSuccess = true;
+          }
+          this.model.username = res.username;
+          this.model.password = regInfo.password;
+          this.registeredFullname = regInfo.fullName;
 
-        this.registerForm.reset();
-      });
+          this.registerForm.reset();
+        },
+        error => {
+          this.registerFailMsg = JSON.stringify(error.error);
+          this.registerFail = true;
+        });
   }
 
   registerCancel() {

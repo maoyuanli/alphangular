@@ -1,27 +1,27 @@
 <div class="field">
   <label>{{label}}</label>
-  <input  [formControl]="control" placeholder="{{placeholder}}" type="{{type}}">
+  <input [formControl]="control" placeholder="{{placeholder}}" type="{{type}}">
 
 
-<ng-container
-  *ngIf="
+  <ng-container
+    *ngIf="
     control.dirty &&
     control.touched &&
     control.errors
   "
->
-  <div *ngIf="control.errors.required" class="ui pointing orange basic label">
-    Your Input is Required.
-  </div>
-  <div *ngIf="control.errors.email" class="ui pointing orange basic label">
-    Valid Email is Required
-  </div>
-  <div *ngIf="control.errors.minlength" class="ui pointing orange basic label">
-    Value you entered is
-    {{ control.errors.minlength.actualLength }}
-    characters long, but it must be at least
-    {{ control.errors.minlength.requiredLength }}
-    characters
-  </div>
-</ng-container>
+  >
+    <div *ngIf="control.errors.required" class="ui pointing orange basic label">
+      Your Input is Required.
+    </div>
+    <div *ngIf="control.errors.email" class="ui pointing orange basic label">
+      Valid Email is Required
+    </div>
+    <div *ngIf="control.errors.minlength" class="ui pointing orange basic label">
+      Value you entered is
+      {{ control.errors.minlength.actualLength }}
+      characters long, but it must be at least
+      {{ control.errors.minlength.requiredLength }}
+      characters
+    </div>
+  </ng-container>
 </div>
