@@ -31,13 +31,13 @@
       </div>
       <div class="form-group col-md-6">
         <label class="input-group-text" htmlFor="inputGroupSelect03">Order Price</label>
-        <input type="number" class="form-control" name="orderPrice"
+        <input [disabled]="orderType.includes('Market')" type="number" class="form-control" name="orderPrice"
                (change)="onChangePrice($event.target.value)"
                placeholder="Enter "/>
       </div>
 
       <div class="form-group col-md-6">
-        <label class="input-group-text" htmlFor="inputGroupSelect04">Order Volumn</label>
+        <label class="input-group-text" htmlFor="inputGroupSelect04" >Order Volumn</label>
         <input type="number" class="form-control" name="orderVolumn"
                (change)="onChangeVolumn($event.target.value)"
                placeholder="Enter "/>
