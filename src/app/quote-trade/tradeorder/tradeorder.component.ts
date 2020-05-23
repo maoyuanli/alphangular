@@ -84,6 +84,14 @@ export class TradeorderComponent implements OnInit {
   logout() {
     localStorage.removeItem('token');
   }
+
+  isValidOrder() {
+    if (this.ticker === '' || this.orderType === '' || this.orderVolumn === '' ||
+      this.orderPrice === '' && !this.orderType.includes('Market')) {
+      return false;
+    }
+    return true;
+  }
 }
 
 export interface Orders {
