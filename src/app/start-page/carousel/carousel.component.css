@@ -1,6 +1,7 @@
 
 img {
   object-position: 50% 10%;
+  object-fit: cover;
 }
 
 a {
@@ -8,15 +9,16 @@ a {
   font-weight: bold;
   text-align: left;
   margin: 50px !important;
-  display: flex;
+  display: block;
 }
 
-mdb-carousel-item{
+mdb-carousel-item {
   max-height: 350px;
+  display: block;
 }
 
-.col-md-4{
-  background-image: linear-gradient(darkslategray,lightslategray);
+.col-md-4 {
+  background-image: linear-gradient(darkslategray, lightslategray);
   color: white;
   display: block;
 }
