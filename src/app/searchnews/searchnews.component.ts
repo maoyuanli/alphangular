@@ -11,7 +11,7 @@ import {SearchNewsApiService} from '../services/search-newsapi-service/search-ne
 })
 export class SearchnewsComponent implements OnInit {
 
-  keyword = '';
+  keyword = 'covid19';
   newsArticles = [];
   wikiArticles = [];
   openedWikiArticle = 0;
