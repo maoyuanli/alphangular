@@ -1,5 +1,5 @@
-<div *ngIf="currentStats!==null" [mdbTooltip]="toolTip">
-  Covid-19 Confirmed {{currentStats.Confirmed | number}}  <i class="canada flag"></i>
+<div *ngIf="currentStats!==null" [mdbTooltip]="moreDetails">
+  Covid-19 Confirmed <i class="canada flag"></i> {{currentStats.Confirmed | number}}
 </div>
 
 
