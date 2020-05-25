@@ -7,7 +7,6 @@ import {StockindexComponent} from './stockindex/stockindex.component';
 import {SharedModule} from '../shared/shared.module';
 import {CarouselComponent} from './carousel/carousel.component';
 import {CarouselModule, WavesModule} from 'angular-bootstrap-md';
-import { Covid19Component } from '../covid19/covid19.component';
 
 @NgModule({
   declarations: [HomepageComponent, StockindexComponent, CarouselComponent],
