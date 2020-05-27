@@ -22,6 +22,11 @@
         Deaths {{currentStats.Deaths | number}}
       </div>
     </div>
+    <div class="item">
+      <google-chart
+        [type]="type" [data]="gchartData" [options]="options"
+      ></google-chart>
+    </div>
   </div>
 </div>
 

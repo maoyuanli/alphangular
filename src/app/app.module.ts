@@ -14,6 +14,7 @@ import {AuthService} from './services/auth-service/auth.service';
 import {SharedModule} from './shared/shared.module';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {Covid19Component} from './covid19/covid19.component';
+import {GoogleChartsModule} from 'angular-google-charts';
 
 
 @NgModule({
@@ -25,16 +26,17 @@ import {Covid19Component} from './covid19/covid19.component';
     TweetsComponent,
     Covid19Component
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    QuoteTradeModule,
-    StartPageModule,
-    AppRoutingModule,
-    SharedModule,
-    MDBBootstrapModule.forRoot()
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        QuoteTradeModule,
+        StartPageModule,
+        AppRoutingModule,
+        SharedModule,
+        MDBBootstrapModule.forRoot(),
+        GoogleChartsModule
+    ],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })
