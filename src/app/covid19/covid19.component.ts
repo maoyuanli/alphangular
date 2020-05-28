@@ -12,14 +12,12 @@ export class Covid19Component implements OnInit {
   gchartData = [];
   type = 'LineChart';
   options = {
-    width: 490,
-    height: 380,
+    width: 380,
+    height: 320,
     lineWidth: 3,
     colors: ['#F7DC6F', '#F39C12', '#2ECC71', '#808B96'],
-    vAxis: {
-    },
-    hAxis: {
-    },
+    vAxis: {},
+    hAxis: {},
     legend: 'none'
   };
 
