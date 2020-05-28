@@ -26,17 +26,17 @@ import {GoogleChartsModule} from 'angular-google-charts';
     TweetsComponent,
     Covid19Component
   ],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        HttpClientModule,
-        QuoteTradeModule,
-        StartPageModule,
-        AppRoutingModule,
-        SharedModule,
-        MDBBootstrapModule.forRoot(),
-        GoogleChartsModule
-    ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    QuoteTradeModule,
+    StartPageModule,
+    AppRoutingModule,
+    SharedModule,
+    MDBBootstrapModule.forRoot(),
+    GoogleChartsModule
+  ],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })
