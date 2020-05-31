@@ -1,43 +1,45 @@
-<div class="scrolling content">
-  <div class="container">
-    <div class="col-md-7 col-xs-12 col-md-offset-2">
-      <div class="panel" id="chat">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            <i class="icon wb-chat-text" aria-hidden="true"></i> Chat
-          </h3>
-        </div>
-        <div class="panel-body">
-
-          <div class="chats" *ngFor="let msg of messageQueue">
-            <div [ngClass]="msg.fromUser ? 'chat chat-left': 'chat chat-right'">
-              <div class="chat-avatar">
-                <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="left" title=""
-                   data-original-title="Edward Fletcher">
-                  <img src="https://bootdey.com/img/Content/avatar/avatar2.png">
-                  <i></i>
-                </a>
-              </div>
-              <div class="chat-body">
-                <div class="chat-content">
+<div class="page-content page-container" id="page-content">
+  <div class="padding">
+    <div class="row container d-flex justify-content-center">
+      <div class="col-md-6">
+        <div class="card card-bordered">
+          <div class="card-header">
+            <h4 class="card-title"><strong>Chat</strong></h4> <a class="btn btn-xs btn-secondary" href="#"
+                                                                 data-abc="true">Let's Chat App</a>
+          </div>
+          <div class="ps-container ps-theme-default ps-active-y" id="chat-content"
+               style="overflow-y: scroll !important; height:400px !important;">
+            <div *ngFor="let msg of messageQueue">
+              <div [ngClass]="msg.fromUser ? 'media media-chat': 'media media-chat media-chat-reverse'">
+                <img class="avatar" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">
+                <div class="media-body">
                   <p>{{msg.text}}</p>
                 </div>
               </div>
             </div>
+            <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
+              <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+            </div>
+            <div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px;">
+              <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 2px;"></div>
+            </div>
+          </div>
+          <div class="publisher bt-1 border-light">
+            <form>
+              <img class="avatar avatar-xs" src="https://img.icons8.com/color/36/000000/administrator-male.png"
+                   alt="...">
+              <input class="publisher-input" type="text" placeholder="Write something"
+                     [value]="typedMsg"
+                     (input)="typedMsg=$event.target.value">
+              <span class="input-group-btn">
+            <button class="publisher-btn text-info" type="submit" (click)="handleTextQuery()">
+              <i class="fa fa-paper-plane"></i></button>
+            </span>
+            </form>
           </div>
         </div>
-      </div>
-      <div class="panel-footer">
-        <form>
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Say something" [value]="typedMsg"
-                   (input)="typedMsg=$event.target.value">
-            <span class="input-group-btn">
-            <button class="btn btn-primary" type="submit" (click)="handleTextQuery()">Send</button>
-          </span>
-          </div>
-        </form>
       </div>
     </div>
   </div>
 </div>
+
