@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  UrlPrefix: 'http://localhost:5000/api/'
+  UrlPrefix: 'http://localhost:5000/api/',
+  chatbotUrl: 'http://localhost:3000/api/chatbot'
 };
 
 /*
