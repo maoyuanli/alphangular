@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {environment} from '../../environments/environment';
+import {UtilsService} from '../services/utils-service/utils.service';
 
 @Component({
   selector: 'app-chatbot',
@@ -11,7 +11,8 @@ export class ChatbotComponent implements OnInit {
   messageQueue: ChatMessage[] = [];
   typedMsg = '';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private utilsService: UtilsService) {
   }
 
   ngOnInit(): void {
@@ -28,7 +29,7 @@ export class ChatbotComponent implements OnInit {
         'Content-Type': 'application/json',
       })
     };
-    this.http.post<DialogFlowResponse>(environment.chatbotUrl,
+    this.http.post<DialogFlowResponse>(this.utilsService.getFullUrl('node', 'chatbot'),
       {text: this.typedMsg}, httpOptions)
       .subscribe({
         next: data => {

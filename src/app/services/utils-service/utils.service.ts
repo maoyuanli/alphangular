@@ -9,14 +9,19 @@ import {environment} from '../../../environments/environment';
 })
 export class UtilsService {
 
-  private backendUrlPrefix = environment.UrlPrefix;
+  private backendUrlPrefix = environment.springUrlPrefix;
   sentiment = new AFINN();
 
   constructor(private http: HttpClient) {
   }
 
-  getFullUrl(endpoint: string) {
-    return this.backendUrlPrefix + endpoint + '/';
+  getFullUrl(backendType: string, endpoint: string) {
+    switch (backendType) {
+      case 'spring':
+        return environment.springUrlPrefix + endpoint + '/';
+      case 'node':
+        return environment.nodeUrlPrefix + endpoint + '/';
+    }
   }
 
   getSentiment(str: string) {

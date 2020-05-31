@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {UtilsService} from './utils-service/utils.service';
+import {UtilsService} from '../utils-service/utils.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class Covid19Service {
   }
 
   fetchCovid19Stats() {
-    return this.http.get<Covid19Stats[]>(this.utilsService.getFullUrl('covid19'));
+    return this.http.get<Covid19Stats[]>(this.utilsService.getFullUrl('spring', 'covid19'));
   }
 }
 

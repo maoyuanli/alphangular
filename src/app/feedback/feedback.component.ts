@@ -64,7 +64,7 @@ export class FeedbackComponent implements OnInit {
         'Content-Type': 'application/json',
       })
     };
-    this.http.post(this.utilsService.getFullUrl('feedback'), feedbackData, httpOptions)
+    this.http.post(this.utilsService.getFullUrl('spring', 'feedback'), feedbackData, httpOptions)
       .subscribe({
         next: data => {
           this.submitResult = String(Object.values(data));

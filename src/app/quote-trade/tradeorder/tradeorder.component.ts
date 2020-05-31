@@ -62,7 +62,7 @@ export class TradeorderComponent implements OnInit {
     };
 
 
-    this.http.post(this.utilsService.getFullUrl('setorder'), orderData, this.httpOptions).subscribe({
+    this.http.post(this.utilsService.getFullUrl('spring', 'setorder'), orderData, this.httpOptions).subscribe({
       next: order => {
         this.fetchOrders();
       },
@@ -71,7 +71,7 @@ export class TradeorderComponent implements OnInit {
   }
 
   fetchOrders() {
-    this.http.get<Orders>(this.utilsService.getFullUrl('getorder'), this.httpOptions)
+    this.http.get<Orders>(this.utilsService.getFullUrl('spring', 'getorder'), this.httpOptions)
       .pipe(pluck('orders'))
       .subscribe(orders => {
           this.existingOrder = orders.sort((a, b) => {

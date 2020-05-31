@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  UrlPrefix: 'https://alphaspring.herokuapp.com/api/',
-  chatbotUrl: 'https://alphanodex.herokuapp.com/api/chatbot'
+  springUrlPrefix: 'https://alphaspring.herokuapp.com/api/',
+  nodeUrlPrefix: 'https://alphanodex.herokuapp.com/api/'
 };

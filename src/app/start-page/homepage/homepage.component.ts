@@ -22,7 +22,6 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit(): void {
     this.onFetchHeadlines();
-
   }
 
   onFetchHeadlines() {
@@ -40,5 +39,6 @@ export class HomepageComponent implements OnInit {
       this.imageStories = articlesWithSent.filter(article => article.urlToImage !== null);
     });
   }
+
 
 }

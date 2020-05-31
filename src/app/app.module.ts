@@ -15,7 +15,7 @@ import {SharedModule} from './shared/shared.module';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {Covid19Component} from './covid19/covid19.component';
 import {GoogleChartsModule} from 'angular-google-charts';
-import { ChatbotComponent } from './chatbot/chatbot.component';
+import {ChatbotComponent} from './chatbot/chatbot.component';
 
 
 @NgModule({
