@@ -1,7 +1,7 @@
 <div class="page-content page-container" id="page-content">
   <div class="padding">
     <div class="row container d-flex justify-content-center">
-      <div class="col-md-6">
+      <div class="col-md-12">
         <div class="card card-bordered">
           <div class="card-header">
             <h4 class="card-title"><strong>Chat</strong></h4> <a class="btn btn-xs btn-secondary" href="#"
@@ -32,9 +32,9 @@
                      [value]="typedMsg"
                      (input)="typedMsg=$event.target.value">
               <span class="input-group-btn">
-            <button class="publisher-btn text-info" type="submit" (click)="handleTextQuery()">
-              <i class="fa fa-paper-plane"></i></button>
-            </span>
+                <button class="publisher-btn text-info" type="submit" (click)="handleTextQuery()">
+                  <i class="fa fa-paper-plane"></i></button>
+              </span>
             </form>
           </div>
         </div>
