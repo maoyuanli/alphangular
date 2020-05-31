@@ -36,7 +36,7 @@ export class ChatbotComponent implements OnInit {
             fromUser: false,
             text: data.fulfillmentText
           });
-          console.log(this.messageQueue);
+          this.typedMsg = '';
         }, error: err => {
           console.error('There was an error!', err);
         }
