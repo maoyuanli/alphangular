@@ -254,7 +254,8 @@ h4.card-title {
   flex-grow: 1;
   border: none;
   outline: none !important;
-  background-color: transparent
+  background-color: transparent;
+  width: 400px;
 }
 
 button,
@@ -303,3 +304,4 @@ textarea {
 .text-info {
   color: #48b0f7 !important
 }
+

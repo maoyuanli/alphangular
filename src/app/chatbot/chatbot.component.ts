@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewChecked, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {UtilsService} from '../services/utils-service/utils.service';
 
@@ -7,15 +7,27 @@ import {UtilsService} from '../services/utils-service/utils.service';
   templateUrl: './chatbot.component.html',
   styleUrls: ['./chatbot.component.css']
 })
-export class ChatbotComponent implements OnInit {
+export class ChatbotComponent implements OnInit, AfterViewChecked {
   messageQueue: ChatMessage[] = [];
   typedMsg = '';
+  @ViewChild('scrollBottom') private scrollBottom: ElementRef;
 
   constructor(private http: HttpClient,
               private utilsService: UtilsService) {
   }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewChecked(): void {
+    this.scrollToBottom();
+  }
+
+  scrollToBottom(): void {
+    try {
+      this.scrollBottom.nativeElement.scrollTop = this.scrollBottom.nativeElement.scrollHeight;
+    } catch (err) {
+    }
   }
 
   handleTextQuery() {
@@ -44,6 +56,7 @@ export class ChatbotComponent implements OnInit {
       })
     ;
   }
+
 
 }
 
