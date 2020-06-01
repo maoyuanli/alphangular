@@ -7,16 +7,16 @@
     <a routerLink="/search" routerLinkActive="active" class="item">Deep Dive</a>
     <a routerLink="/trade" routerLinkActive="active" class="item">Top Picks of the Day</a>
     <a routerLink="/feedback" routerLinkActive="active" class="item">Feedback</a>
-    <a *ngIf="nodeWakedUp" routerLink="/chatbot" routerLinkActive="active" class="item">
-      <i class="notched circle loading icon"></i>
-      Hi, there!
-    </a>
 
     <div class="right menu">
       <app-covid19></app-covid19>
     </div>
 
     <div class="right menu">
+      <a *ngIf="nodeWakedUp" routerLink="/chatbot" routerLinkActive="active" class="item">
+        <i class="notched circle loading icon"></i>
+        Hi, there!
+      </a>
       <a class="ui item" href="https://github.com/maoyuanli/"><i class="github icon"></i>Other Projects</a>
     </div>
   </div>
