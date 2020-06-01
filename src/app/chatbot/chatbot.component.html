@@ -1,6 +1,6 @@
 <div class="page-content page-container" id="page-content">
   <div class="padding">
-    <div  class="row container d-flex justify-content-center">
+    <div class="row container d-flex justify-content-center">
       <div class="col-md-12">
         <div class="card card-bordered">
           <div class="card-header">
@@ -11,7 +11,7 @@
                style="overflow-y: scroll !important; height:400px !important;">
             <div *ngFor="let msg of messageQueue">
               <div [ngClass]="msg.fromUser ? 'media media-chat': 'media media-chat media-chat-reverse'">
-                <img class="avatar" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">
+                <img class="avatar" [src]="msg.fromUser ? visitorAvatar: botAvatar" alt="...">
                 <div class="media-body">
                   <p>{{msg.text}}</p>
                 </div>
@@ -26,8 +26,8 @@
           </div>
           <div class="publisher bt-1 border-light">
             <form>
-              <img class="avatar" src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">
-              <input class="publisher-input" type="text" placeholder="Write something"
+              <img src="https://img.icons8.com/officexs/30/000000/gender-neutral-user.png"/>
+              <input class="publisher-input" type="text" placeholder="   send message"
                      [value]="typedMsg"
                      (input)="typedMsg=$event.target.value">
               <span class="input-group-btn">
