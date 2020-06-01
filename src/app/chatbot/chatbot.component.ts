@@ -11,7 +11,7 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
   messageQueue: ChatMessage[] = [];
   typedMsg = '';
   @ViewChild('scrollBottom') private scrollBottom: ElementRef;
-  visitorAvatar = 'https://img.icons8.com/office/40/000000/gender-neutral-user.png';
+  visitorAvatar = 'https://img.icons8.com/officexs/30/000000/gender-neutral-user.png';
   botAvatar = 'https://img.icons8.com/ios-filled/48/000000/maxcdn.png';
 
   constructor(private http: HttpClient,
@@ -57,8 +57,6 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
         }
       });
   }
-
-
 }
 
 export interface ChatMessage {
