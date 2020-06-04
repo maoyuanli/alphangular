@@ -17,8 +17,21 @@
                 <div [ngClass]="msg.fromUser ? 'media media-chat': 'media media-chat media-chat-reverse'">
                   <img class="avatar" [src]="msg.fromUser ? visitorAvatar: botAvatar" alt="...">
                   <div class="media-body">
-                    <p>{{msg.text}}</p>
-                  </div>
+                      <div class="card" >
+                        <div class="content">
+                          <div class="description">
+                            <p>{{msg.text}}</p>
+                          </div>
+                        </div>
+                        <div class="extra content" *ngIf="msg.ask">
+                          <div class="ui two buttons">
+                            <div class="ui basic green button" (click)="showSkill=true">Let me see</div>
+                            <div class="ui basic red button" (click)="handleDecline()">Decline</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                 </div>
               </div>
               <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
@@ -46,7 +59,7 @@
     </div>
   </div>
 
-  <div class="ui dimmer visible active">
+  <div class="ui dimmer visible active" *ngIf="showSkill">
     <div class="ui modal visible active">
       <i class="close icon"></i>
       <div class="header">
@@ -61,7 +74,7 @@
         </div>
       </div>
       <div class="actions">
-        <button class="ui positive labeled icon button"><i class="checkmark icon"></i>Close
+        <button (click)="handleCloseSkillModal()" class="ui positive labeled icon button"><i class="checkmark icon"></i>Close
         </button>
       </div>
     </div>

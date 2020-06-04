@@ -14,6 +14,8 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
   visitorAvatar = 'https://img.icons8.com/officexs/30/000000/gender-neutral-user.png';
   botAvatar = 'https://img.icons8.com/ios-filled/48/000000/maxcdn.png';
   allSkills: Skill[] = [];
+  showSkill = false;
+  alreadyAsked = false;
 
   constructor(private chatbotService: ChatbotService, private skillService: SkillService) {
   }
@@ -24,6 +26,27 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
 
   ngAfterViewChecked(): void {
     this.scrollToBottom();
+    this.popForEndorse();
+  }
+
+  popForEndorse() {
+    if (this.messageQueue.length === 2 && this.alreadyAsked === false) {
+      this.messageQueue.push({
+        fromUser: false,
+        text: 'Already know Mao? Would you endorse his skills?',
+        ask: true
+      });
+      this.alreadyAsked = true;
+    }
+  }
+
+  handleDecline() {
+    this.messageQueue = this.messageQueue.filter(msg => !msg.ask);
+  }
+
+  handleCloseSkillModal() {
+    this.showSkill = false;
+    this.sendChat('endorsed');
   }
 
   scrollToBottom(): void {
@@ -39,7 +62,11 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
       text: this.typedMsg
     });
 
-    this.chatbotService.chat(this.typedMsg)
+    this.sendChat(this.typedMsg);
+  }
+
+  sendChat(text: string) {
+    this.chatbotService.chat(text)
       .subscribe({
         next: data => {
           this.messageQueue.push({
@@ -72,6 +99,7 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
 export interface ChatMessage {
   fromUser: boolean;
   text: string;
+  ask?: boolean;
 }
 
 export interface Skill {
