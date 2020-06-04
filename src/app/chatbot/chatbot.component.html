@@ -17,20 +17,20 @@
                 <div [ngClass]="msg.fromUser ? 'media media-chat': 'media media-chat media-chat-reverse'">
                   <img class="avatar" [src]="msg.fromUser ? visitorAvatar: botAvatar" alt="...">
                   <div class="media-body">
-                      <div class="card" >
-                        <div class="content">
-                          <div class="description">
-                            <p>{{msg.text}}</p>
-                          </div>
+                    <div class="card">
+                      <div class="content">
+                        <div class="description">
+                          <p>{{msg.text}}</p>
                         </div>
-                        <div class="extra content" *ngIf="msg.ask">
-                          <div class="ui two buttons">
-                            <div class="ui basic green button" (click)="showSkill=true">Let me see</div>
-                            <div class="ui basic red button" (click)="handleDecline()">Decline</div>
-                          </div>
+                      </div>
+                      <div class="extra content" *ngIf="msg.ask">
+                        <div class="ui two buttons" id="ui2btn">
+                          <div class="ui basic green button" (click)="showSkill=true">Let me see</div>
+                          <div class="ui basic red button" (click)="handleDecline()">Decline</div>
                         </div>
                       </div>
                     </div>
+                  </div>
 
                 </div>
               </div>
@@ -59,7 +59,7 @@
     </div>
   </div>
 
-  <div class="ui dimmer visible active" *ngIf="showSkill">
+  <div class="ui dimmer invisible active" *ngIf="showSkill">
     <div class="ui modal visible active">
       <i class="close icon"></i>
       <div class="header">
