@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {pluck} from 'rxjs/operators';
-import {HttpClient} from '@angular/common/http';
-import {UtilsService} from './services/utils-service/utils.service';
+import {ChatbotService} from './services/chatbot-service/chatbot.service';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +10,7 @@ export class AppComponent implements OnInit {
 
   nodeWakedUp = false;
 
-  constructor(private http: HttpClient,
-              private utilsService: UtilsService) {
+  constructor(private chatbotService: ChatbotService) {
   }
 
   ngOnInit(): void {
@@ -21,15 +18,16 @@ export class AppComponent implements OnInit {
   }
 
   private wakeUpNode() {
-    this.http.get(this.utilsService.getFullUrl('node', 'program')).pipe(
-      pluck('data', 'programs')
-    ).subscribe({
-      next: data => {
-        this.nodeWakedUp = true;
-      },
-      error: err => {
-        console.error('There was an error!', err);
-      }
-    });
+    this.chatbotService.chat('hi')
+      .subscribe({
+        next: data => {
+          if (data.fulfillmentText.length !== 0) {
+            this.nodeWakedUp = true;
+          }
+        },
+        error: err => {
+          console.error('There was an error!', err);
+        }
+      });
   }
 }

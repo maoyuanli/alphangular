@@ -1,6 +1,5 @@
 import {AfterViewChecked, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {UtilsService} from '../services/utils-service/utils.service';
+import {ChatbotService} from '../services/chatbot-service/chatbot.service';
 
 @Component({
   selector: 'app-chatbot',
@@ -14,8 +13,7 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
   visitorAvatar = 'https://img.icons8.com/officexs/30/000000/gender-neutral-user.png';
   botAvatar = 'https://img.icons8.com/ios-filled/48/000000/maxcdn.png';
 
-  constructor(private http: HttpClient,
-              private utilsService: UtilsService) {
+  constructor(private chatbotService: ChatbotService) {
   }
 
   ngOnInit(): void {
@@ -38,13 +36,7 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
       text: this.typedMsg
     });
 
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-      })
-    };
-    this.http.post<DialogFlowResponse>(this.utilsService.getFullUrl('node', 'chatbot'),
-      {text: this.typedMsg}, httpOptions)
+    this.chatbotService.chat(this.typedMsg)
       .subscribe({
         next: data => {
           this.messageQueue.push({
@@ -62,9 +54,4 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
 export interface ChatMessage {
   fromUser: boolean;
   text: string;
-}
-
-export interface DialogFlowResponse {
-  queryText: string;
-  fulfillmentText: string;
 }
