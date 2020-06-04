@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   springUrlPrefix: 'http://localhost:5000/api/',
-  // nodeUrlPrefix: 'http://localhost:3000/api/'
-  nodeUrlPrefix: 'https://alphanodex.herokuapp.com/api/'
+  nodeUrlPrefix: 'http://localhost:3000/api/'
+  // nodeUrlPrefix: 'https://alphanodex.herokuapp.com/api/'
 };
 
 /*

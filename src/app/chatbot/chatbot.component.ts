@@ -1,5 +1,6 @@
 import {AfterViewChecked, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ChatbotService} from '../services/chatbot-service/chatbot.service';
+import {SkillService} from '../services/skill-service/skill.service';
 
 @Component({
   selector: 'app-chatbot',
@@ -12,11 +13,13 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
   @ViewChild('scrollBottom') private scrollBottom: ElementRef;
   visitorAvatar = 'https://img.icons8.com/officexs/30/000000/gender-neutral-user.png';
   botAvatar = 'https://img.icons8.com/ios-filled/48/000000/maxcdn.png';
+  allSkills: Skill[] = [];
 
-  constructor(private chatbotService: ChatbotService) {
+  constructor(private chatbotService: ChatbotService, private skillService: SkillService) {
   }
 
   ngOnInit(): void {
+    this.getAllSkills();
   }
 
   ngAfterViewChecked(): void {
@@ -49,9 +52,29 @@ export class ChatbotComponent implements OnInit, AfterViewChecked {
         }
       });
   }
+
+  getAllSkills() {
+    this.skillService.fetchAllSkills().subscribe(skills => {
+      this.allSkills = skills;
+    });
+  }
+
+  handleUpdateSkill(skillName: string, score: number) {
+    this.skillService.updateSkill({
+      skillName,
+      score: Number(score) + 1
+    }).subscribe(data => {
+      this.getAllSkills();
+    });
+  }
 }
 
 export interface ChatMessage {
   fromUser: boolean;
   text: string;
+}
+
+export interface Skill {
+  skillName: string;
+  score: number;
 }
