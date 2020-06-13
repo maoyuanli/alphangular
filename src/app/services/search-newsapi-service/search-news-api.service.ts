@@ -14,7 +14,7 @@ export class SearchNewsApiService {
   }
 
   search(keyword: string) {
-    const endpoint = this.utilsService.getFullUrl('spring', 'searchnews');
+    const endpoint = this.utilsService.getFullUrl('node', 'searchnews');
     const searchUrl = endpoint.slice(0, endpoint.length - 1) + `?q=${keyword}`;
     return this.utilsService.getNewsArticlesWithSentScore(searchUrl);
   }

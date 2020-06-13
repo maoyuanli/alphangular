@@ -23,7 +23,7 @@ export class QuotepageComponent implements OnInit {
   }
 
   fetchQuotes() {
-    this.http.get(this.utilsService.getFullUrl('spring', 'quote')).pipe(map(res => {
+    this.http.get(this.utilsService.getFullUrl('node', 'quote')).pipe(map(res => {
       const quotesArray = [];
       for (const key in res) {
         if (res.hasOwnProperty(key)) {

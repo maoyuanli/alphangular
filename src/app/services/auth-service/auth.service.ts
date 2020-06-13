@@ -18,7 +18,7 @@ export class AuthService {
         'Content-Type': 'application/json',
       })
     };
-    return this.http.post(this.utilsService.getFullUrl('spring', 'users/login'), model, httpOptions)
+    return this.http.post(this.utilsService.getFullUrl('node', 'users/login'), model, httpOptions)
       .pipe(
         map(res => {
           const token = Object.values(res)[1];

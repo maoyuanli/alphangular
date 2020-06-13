@@ -20,7 +20,7 @@ export class TweetsComponent implements OnInit {
   }
 
   fetchTweets() {
-    this.http.get(this.utilsService.getFullUrl('spring', 'tweet')).pipe(map(res => {
+    this.http.get(this.utilsService.getFullUrl('node', 'tweet')).pipe(map(res => {
       const resArray = [];
       for (const key in res) {
         if (res.hasOwnProperty(key)) {

@@ -12,7 +12,7 @@ export class Covid19Service {
   }
 
   fetchCovid19Stats() {
-    return this.http.get<Covid19Stats[]>(this.utilsService.getFullUrl('spring', 'covid19'));
+    return this.http.get<Covid19Stats[]>(this.utilsService.getFullUrl('node', 'covid19'));
   }
 }
 

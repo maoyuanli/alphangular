@@ -64,13 +64,13 @@ export class QuoteAndTradePageComponent implements OnInit {
       password: this.registerForm.controls.password.value,
       confirmPassword: this.registerForm.controls.password.value
     };
-    this.http.post<RegisterSuccessResponse>(this.utilsService.getFullUrl('spring', 'users/register'),
+    this.http.post<RegisterSuccessResponse>(this.utilsService.getFullUrl('node', 'users/register'),
       regInfo, httpOptions)
       .subscribe(res => {
           if (res.password) {
             this.registerSuccess = true;
           }
-          this.model.username = res.username;
+          this.model.username = regInfo.username;
           this.model.password = regInfo.password;
           this.registeredFullname = regInfo.fullName;
 

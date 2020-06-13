@@ -13,6 +13,6 @@ export class TopNewsService {
   }
 
   fetchTopNews() {
-    return this.utilsService.getNewsArticlesWithSentScore(this.utilsService.getFullUrl('spring', 'topnews'));
+    return this.utilsService.getNewsArticlesWithSentScore(this.utilsService.getFullUrl('node', 'topnews'));
   }
 }
