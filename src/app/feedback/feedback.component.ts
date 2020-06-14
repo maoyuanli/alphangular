@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {UtilsService} from '../services/utils-service/utils.service';
+import {ChatbotService} from '../services/chatbot-service/chatbot.service';
 
 @Component({
   selector: 'app-feedback',
@@ -18,14 +19,18 @@ export class FeedbackComponent implements OnInit {
   submitEmail = '';
   submitPhone = '';
   submitComment = '';
+  nodeWakedUp = false;
+  leaveAMsg = true;
 
   constructor(private http: HttpClient,
               private utilsService: UtilsService,
-              private elementRef: ElementRef) {
+              private elementRef: ElementRef,
+              private chatbotService: ChatbotService) {
   }
 
   ngOnInit(): void {
     document.body.appendChild(this.elementRef.nativeElement);
+    this.wakeUpNode();
   }
 
   onChangeName(value: string) {
@@ -92,5 +97,19 @@ export class FeedbackComponent implements OnInit {
 
   clearSubmitResult() {
     this.submitResult = '';
+  }
+
+  private wakeUpNode() {
+    this.chatbotService.chat('hi')
+      .subscribe({
+        next: data => {
+          if (data.fulfillmentText.length !== 0) {
+            this.nodeWakedUp = true;
+          }
+        },
+        error: err => {
+          console.error('There was an error!', err);
+        }
+      });
   }
 }

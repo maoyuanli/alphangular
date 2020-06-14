@@ -1,5 +1,5 @@
 <div class="container">
-  <form>
+  <form *ngIf="leaveAMsg">
     <section class="mb-4">
       <h2 class="h1-responsive font-weight-bold text-center my-4">Leave a Message to Mao</h2>
       <div class="row">
@@ -63,6 +63,11 @@
         </div>
       </div>
     </section>
+    <div class="ui bottom attached warning message" *ngIf="nodeWakedUp">
+      <i class="flask icon"></i>
+      Don't feel like fill up a form ?
+      <a (click)="leaveAMsg=!leaveAMsg">Talk to his assistant instead <i class="notched circle loading icon"> </i></a>
+    </div>
   </form>
 
   <div class="ui dimmer visible active" *ngIf="submitResult">
@@ -95,5 +100,6 @@
       </div>
     </div>
   </div>
-
 </div>
+
+<app-chatbot *ngIf="!leaveAMsg"></app-chatbot>
