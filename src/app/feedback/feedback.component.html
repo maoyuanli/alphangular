@@ -65,8 +65,11 @@
     </section>
     <div class="ui bottom attached warning message" *ngIf="nodeWakedUp">
       <i class="flask icon"></i>
-      Don't feel like fill up a form ?
-      <a (click)="leaveAMsg=!leaveAMsg">Talk to his assistant instead <i class="notched circle loading icon"> </i></a>
+      Don't feel like filling up a form ?
+      <a (click)="leaveAMsg=!leaveAMsg" id="talk2bot">
+        Talk to his assistant instead
+        <i class="notched circle loading icon"></i>
+      </a>
     </div>
   </form>
 

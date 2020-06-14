@@ -84,3 +84,11 @@ h4 {
     opacity: 1;
   }
 }
+
+#talk2bot {
+  color: blue;
+}
+
+.ui.bottom.attached {
+  font-size: medium;
+}
