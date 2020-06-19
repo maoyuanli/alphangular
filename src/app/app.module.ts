@@ -16,6 +16,7 @@ import {MDBBootstrapModule} from 'angular-bootstrap-md';
 import {Covid19Component} from './covid19/covid19.component';
 import {GoogleChartsModule} from 'angular-google-charts';
 import {ChatbotComponent} from './chatbot/chatbot.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {ChatbotComponent} from './chatbot/chatbot.component';
     PagenotfoundComponent,
     TweetsComponent,
     Covid19Component,
-    ChatbotComponent
+    ChatbotComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
