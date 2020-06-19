@@ -1,13 +1,18 @@
-img{
+
+.image {
   filter: brightness(40%);
+  display: block;
+  max-height: 65em;
+  width: auto;
+  height: auto;
 }
 
-.segment{
+.segment {
   position: relative;
   text-align: center;
 }
 
-.container{
+.container {
   position: absolute;
   top: 35%;
   left: 50%;
@@ -15,11 +20,11 @@ img{
   color: white;
 }
 
-#artificial{
+#artificial {
   text-decoration: line-through;
   font-style: italic;
 }
 
-.divider{
+.divider {
   font-size: x-large;
 }
