@@ -1,28 +1,29 @@
-<div class="ui container" *ngIf="router.url !== '/'">
+<div *ngIf="router.url !== '/'">
   <app-tweets></app-tweets>
 </div>
 
 <app-landing-page *ngIf="router.url === '/'"></app-landing-page>
 
-<div class="ui container" *ngIf="router.url !== '/'">
-  <div class="ui secondary pointing menu">
-    <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="item"><i
-      class="home icon"></i>Home</a>
-    <a routerLink="/search" routerLinkActive="active" class="item">Deep Dive</a>
-    <a routerLink="/trade" routerLinkActive="active" class="item">Top Picks of the Day</a>
-    <a routerLink="/feedback" routerLinkActive="active" class="item">Feedback</a>
+<div class="ui secondary pointing menu" *ngIf="router.url !== '/'">
+  <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="item"><i
+    class="home icon"></i>Home</a>
+  <a routerLink="/search" routerLinkActive="active" class="item">Deep Dive</a>
+  <a routerLink="/trade" routerLinkActive="active" class="item">Top Picks of the Day</a>
+  <a routerLink="/feedback" routerLinkActive="active" class="item">Feedback</a>
 
-    <div class="right menu">
-      <app-covid19></app-covid19>
-    </div>
-
-    <div class="right menu">
-      <a class="ui item" href="https://github.com/maoyuanli/"><i class="github icon"></i>Other Projects</a>
-    </div>
+  <div class="right menu">
+    <app-covid19></app-covid19>
   </div>
 
-  <div class="ui segment">
-    <router-outlet></router-outlet>
+  <div class="right menu">
+    <a class="ui item" href="https://github.com/maoyuanli/"><i class="github icon"></i>Other Projects</a>
   </div>
 </div>
+
+<div class="ui hidden divider"></div>
+
+<div class="ui container" *ngIf="router.url !== '/'">
+  <router-outlet></router-outlet>
+</div>
+
 

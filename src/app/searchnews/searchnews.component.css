@@ -23,8 +23,8 @@
   /*background-color: #d9dfe5;*/
   -webkit-animation: bummer 2s;
   animation: bummer 2s;
-  -webkit-transform: scale(1.1, 1.1);
-  transform: scale(1.1, 1.1);
+  -webkit-transform: scale(0.8, 0.8);
+  transform: scale(0.8, 0.8);
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
