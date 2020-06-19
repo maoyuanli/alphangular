@@ -1,0 +1,11 @@
+img{
+  filter: brightness(50%);
+
+}
+
+.container{
+  position: absolute;
+  text-align: center;
+  color: white;
+
+}
