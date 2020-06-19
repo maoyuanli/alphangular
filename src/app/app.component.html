@@ -3,7 +3,8 @@
 </div>
 <div class="ui container">
   <div class="ui secondary pointing menu">
-    <a routerLink="/" routerLinkActive="active" class="item"><i class="home icon"></i>Home</a>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="item"><i
+      class="home icon"></i>Home</a>
     <a routerLink="/search" routerLinkActive="active" class="item">Deep Dive</a>
     <a routerLink="/trade" routerLinkActive="active" class="item">Top Picks of the Day</a>
     <a routerLink="/feedback" routerLinkActive="active" class="item">Feedback</a>
